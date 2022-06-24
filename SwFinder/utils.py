@@ -3,6 +3,7 @@ import os
 import sys
 
 import glob_vars
+import folding_api
 
 def tuple_to_int(inp_tuple):
     temp_list = [int(x) for x in inp_tuple]
@@ -21,11 +22,11 @@ def merge_intervals(intervals):
     return np.vstack((starts[:][valid[:-1]], ends[:][valid[1:]])).T
 
 
-# def get_confl_loops_dict(inp_dict):
-#     out_dict = {}
-#     for fr in inp_dict:
-#         out_dict[fr] = fold_script.get_two_major_conflicting_loops(inp_dict[fr])
-#     return out_dict
+def get_confl_loops_dict(inp_dict):
+    out_dict = {}
+    for fr in inp_dict:
+        out_dict[fr] = folding_api.get_two_major_conflicting_loops(inp_dict[fr])
+    return out_dict
 
 def array_to_string(inp_array):
     string_array = [glob_vars._char_to_nt_mapping[x] for x in inp_array]

@@ -11,7 +11,7 @@ import multiprocessing
 
 CONSTANT_FOR_FAILING = 1000000
 
-def handler():
+def handler(raw_args = None):
     parser = argparse.ArgumentParser()
     parser.add_argument("--dotbracket", help="the output file for ", type=str)
     parser.add_argument("-o", help="output filename", type=str)
@@ -22,16 +22,16 @@ def handler():
     parser.set_defaults(
                         dotbracket='/Users/student/Documents/hani/SNIP_switches/MIBP_python/UTRs/test_inputs_outputs/example_energy_file.txt',
                         o='/avicenna/khorms/projects/SNIP_switchers/MIBP_python/folding_landscapes/test_outputs/ENST00000372077_part_4_original_energies.txt',
-                        path_rnapathfinder='/avicenna/khorms/programs/RNApathfinder/srcTABU/get_barrier',
+                        path_rnapathfinder='/avicenna/khorms/programs/RNApathfinder',
                         num_processes=10,
                         how_often_print=100
                         )
-    args = parser.parse_args()
+    args = parser.parse_args(raw_args)
     return args
 
 
-def read_arguments():
-    args = handler()
+def read_arguments(raw_args = None):
+    args = handler(raw_args)
     dotbracket_filename = args.dotbracket
     output_filename = args.o
 
@@ -43,6 +43,7 @@ def read_arguments():
     temp_files_folder = args.temp_files_folder
     NUM_PROCESSES = args.num_processes
     PATH_THAPATHFINDER = args.path_rnapathfinder
+    PATH_THAPATHFINDER = os.path.join(PATH_THAPATHFINDER, "srcTABU/get_barrier")
     HOW_OFTEN_TO_PRINT = args.how_often_print
 
     return dotbracket_filename, output_filename
@@ -192,8 +193,8 @@ def worker_for_parallel_implementation(fragment_name):
     return string_to_write
 
 
-def main():
-    dotbracket_filename, output_filename = read_arguments()
+def main(raw_args = None):
+    dotbracket_filename, output_filename = read_arguments(raw_args)
     get_neccesary_dictionaries(dotbracket_filename)
     compile_global_patterns()
     pool = multiprocessing.Pool(NUM_PROCESSES)

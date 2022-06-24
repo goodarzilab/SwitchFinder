@@ -35,7 +35,7 @@ def handler(raw_args = None):
 
 
 def read_arguments(raw_args):
-    args = handler()
+    args = handler(raw_args)
     fasta_filename = args.f
     scores_filename = args.s
     output_filename = args.o
