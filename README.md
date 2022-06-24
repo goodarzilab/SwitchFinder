@@ -25,9 +25,10 @@ pyteiser_pipeline --rna_fastafile <path to test_seqs.fa> --exp_values_file <path
 
 ### Usage of pipeline in manual step-by-step mode
 #### 1. Split the sequence to fragments of the same length
+chop_sequences.py
 
 #### 2. Identify the conflicting local minima
-	Use SwFinder/MIBP_fragments_stem_finder_SHAPE_parralel.py
+find_mutually_exclusive_stems.py
 
 #### 2. Fold the mutually exclusive structures
 	Use SwFinder/MIBP_fragments_stem_finder_SHAPE_parralel.py

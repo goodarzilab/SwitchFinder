@@ -11,7 +11,7 @@ import random
 import string
 
 
-def handler():
+def handler(raw_args = None):
     parser = argparse.ArgumentParser()
     parser.add_argument("-f", help="the fasta file with the target sequences", type=str)
     parser.add_argument("--shape_dict", help="dictionary with SHAPE/DMS values", type=str)
@@ -41,12 +41,12 @@ def handler():
                         MI_max_ratio_filtering_constant=0.5,
                         how_often_print=10
                         )
-    args = parser.parse_args()
+    args = parser.parse_args(raw_args)
     return args
 
 
-def define_variables():
-    args = handler()
+def define_variables(raw_args):
+    args = handler(raw_args)
 
     global RT
     global NUM_SAMPLES
@@ -70,10 +70,13 @@ def define_variables():
 
     input_fasta_file = args.f
     short_filename = input_fasta_file.split('/')[-1].split('.')[0]
-    input_shape_dict = pickle.load(open(args.shape_dict, 'rb'))
+    if not args.shape_dict is None:
+        input_shape_dict = pickle.load(open(args.shape_dict, 'rb'))
+    else:
+        input_shape_dict = None
     output_folder = args.o
-    output_filename = os.path.join(output_folder, short_filename + '_parralel_MIBP_output.txt')
-    output_timing_filename = os.path.join(output_folder, short_filename + '_parralel_MIBP_timing.txt')
+    output_filename = os.path.join(output_folder, 'output.txt')
+    output_timing_filename = os.path.join(output_folder, 'timing.txt')
 
     global temp_files_folder
     global RNAstructure_parameters_data_path
@@ -107,11 +110,22 @@ def run_RNAstructure_precalculations(fragment_sequence_file, filenames_dict):
     if not shapefile is None:
         partition_command += ' --SHAPE %s' % (shapefile)
     partition_command = datapath_command + partition_command
+
     subprocess.call(partition_command, shell=True)
 
     stochastic_command = "%s %s %s" % (stochastic_program_path, pfsfile, ctfile)
     stochastic_command = datapath_command + stochastic_command
     subprocess.call(stochastic_command, shell=True)
+
+
+    # try:
+    #     proc = subprocess.Popen(
+    #         command_array, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    #     proc.wait()
+    #     (stdout, stderr) = proc.communicate()
+    #
+    # except calledProcessError as err:
+    #     print("Error ocurred: " + err.stderr)
 
 
 def energy2partition(inp_energy):
@@ -483,6 +497,8 @@ def create_files_required(fragment_name_loc, shape_profile):
 
 def delete_files_required(filenames_dict, fragment_name_loc):
     for fn_var in filenames_dict:
+        if filenames_dict[fn_var] is None:
+            continue
         os.remove(filenames_dict[fn_var])
     fragment_sequence_file = os.path.join(temp_files_folder, fragment_name_loc + '_sequence.fa')
     os.remove(fragment_sequence_file)
@@ -554,8 +570,8 @@ def mp_handler(input_fasta_file, input_shape_dict, output_filename, output_timin
                     write_timing.flush()
 
 
-def main():
-    input_fasta_file, input_shape_dict, output_filename, output_timing_filename = define_variables()
+def main(raw_args = None):
+    input_fasta_file, input_shape_dict, output_filename, output_timing_filename = define_variables(raw_args)
     mp_handler(input_fasta_file, input_shape_dict, output_filename, output_timing_filename)
 
 

@@ -663,3 +663,119 @@ def fold_perturbation_shape_MFE(fasta_file,
     for fn in sorted(list(set(filenames_to_remove))):
         os.remove(fn)
     return string_to_write
+
+
+def conflicting_loops_scores_output_parser(inp_scores_file_loc):
+    init_pars_dict_loc = {}
+    with open(inp_scores_file_loc, 'r') as rf:
+        bigline = rf.read()
+        bigarray = bigline.split('\n$$$\n')
+        bigarray = [x for x in bigarray if x != '']
+        for entry in bigarray:
+            # print(entry)
+            splitted_entry = entry.split('\n')
+            if splitted_entry[1] == 'ERROR':
+                continue
+            if len(splitted_entry) <= 2:
+                continue
+            fragment_name = splitted_entry[0]
+            basepairs_number = re.findall("\d+", splitted_entry[1])[0]
+            basepairs_number = float(basepairs_number)
+            init_pars_dict_loc[fragment_name] = {}
+            init_pars_dict_loc[fragment_name]['basepairs_number'] = basepairs_number
+            init_pars_dict_loc[fragment_name]['pairs_loops'] = {}
+            format_counter = -1
+            for line in splitted_entry[2:]:
+                if line.startswith('Overlapping part of loops'):
+                    pair_number = re.findall("\d+", line)[0]
+                    pair_number = int(pair_number)
+                    init_pars_dict_loc[fragment_name]['pairs_loops'][pair_number] = {}
+                    format_counter = 0
+                    continue
+
+                current_loop = 0
+                if format_counter == 0:
+                    current_loop = 0
+                    format_counter = 1
+                elif format_counter == 1:
+                    current_loop = 1
+                    format_counter = 2
+                else:
+                    print("Error!")
+                    break
+
+                numbers_in_string = re.findall(r'\d+\.*\d*', line)
+                numbers_in_string = [float(x) for x in numbers_in_string]
+                init_pars_dict_loc[fragment_name]['pairs_loops'][pair_number][current_loop] = \
+                    {"forward": (numbers_in_string[0], numbers_in_string[1]), \
+                     "backward": (numbers_in_string[2], numbers_in_string[3]),
+                     "average_MI": numbers_in_string[4]}
+    return init_pars_dict_loc
+
+
+def get_all_the_fragments_from_fasta_file(input_fasta_file_loc):
+    fragments_seq_dict_loc = {}
+    with open(input_fasta_file_loc, 'r') as rf:
+        bigline = rf.read()
+        bigarray = bigline.split('\n>')
+        bigarray = [x for x in bigarray if x != '']
+        for entry in bigarray:
+            index = entry.find('\n')
+            fragment_name_loc = entry[0:index]
+            fragment_name_loc = fragment_name_loc.replace('>', '')
+            sequence = entry[index:].replace('\n', '')
+            fragments_seq_dict_loc[fragment_name_loc] = sequence
+    return fragments_seq_dict_loc
+
+
+def get_two_major_conflicting_loops(dict_element):
+    major_loop, major_loop_MI = get_major_loop(dict_element)
+    second_loop = get_max_loop_conflicting_with_the_major_one(dict_element, major_loop, major_loop_MI)
+    loops_dict_fr = {'major':major_loop, 'second':second_loop}
+    return loops_dict_fr
+
+
+def get_major_loop(init_pars_dict_entry):
+    major_loop = {}
+    major_loop_MI = 0
+    for num1 in init_pars_dict_entry['pairs_loops']:
+        for num2 in init_pars_dict_entry['pairs_loops'][num1]:
+            current_loop = init_pars_dict_entry['pairs_loops'][num1][num2]
+            current_loop_MI = current_loop['average_MI']
+            if current_loop_MI > major_loop_MI:
+                major_loop_MI = current_loop_MI
+                major_loop = current_loop
+    return major_loop, major_loop_MI
+
+
+def get_max_loop_conflicting_with_the_major_one(init_pars_dict_entry, major_loop, major_loop_MI):
+    second_loop = {}
+    second_loop_MI = 0
+    major_loop_characteristic_string = get_characteristic_string(major_loop)
+
+    for num1 in init_pars_dict_entry['pairs_loops']:
+        characteristic_strings_dict = {}
+        for num2 in init_pars_dict_entry['pairs_loops'][num1]:
+            current_loop = init_pars_dict_entry['pairs_loops'][num1][num2]
+            characteristic_string = get_characteristic_string(current_loop)
+            characteristic_strings_dict[characteristic_string] = current_loop
+        if major_loop_characteristic_string in characteristic_strings_dict:
+            del characteristic_strings_dict[major_loop_characteristic_string]
+            keys_list = sorted(list(characteristic_strings_dict.keys()))
+            current_loop = characteristic_strings_dict[keys_list[0]]
+            current_loop_MI = current_loop['average_MI']
+            if len(keys_list) != 1:
+                print("Error!")
+            if current_loop_MI > second_loop_MI:
+                second_loop = current_loop
+                second_loop_MI = current_loop_MI
+
+    return second_loop
+
+
+def make_sting_to_write(fragment_name, fragment_sequence, free_energies_dict, consensus_structures_dict):
+    string_to_write = '%s\n%s\n' % (fragment_name, fragment_sequence)
+    string_to_write += 'major_loop\n%s\nsecond_loop\n%s\ncommon\n%s\n' % (consensus_structures_dict['major'], consensus_structures_dict['second'], consensus_structures_dict['common'])
+    string_to_write += 'major_loop: %f, second_loop: %f, saddle: %f\n' % (free_energies_dict['major_loop'], free_energies_dict['second_loop'], free_energies_dict['saddle'])
+    string_to_write += '$$$\n'
+    return string_to_write
