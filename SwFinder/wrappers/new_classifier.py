@@ -27,9 +27,6 @@ def handler():
     parser.add_argument("--num_processes", help="number of processes to run in parralel", type=int)
     parser.add_argument("--n_iterations", help="number of iterations for the mutation generator script", type=int)
     parser.add_argument("--n_mutations", help="number of mutations to generate for each conformation", type=int)
-    parser.add_argument("--loop_energies_coefficient", help="linear model coefficient for the energies of alternative conformations", type=float)
-    parser.add_argument("--barrier_heights_coefficient", help="linear model coefficient for the height of the activation energy barrier", type=float)
-    parser.add_argument("--intercept", help="output dataframe filename", type=float)
 
 
     parser.set_defaults(
@@ -42,9 +39,6 @@ def handler():
                         fragment_length = 186,
                         n_iterations = 100,
                         n_mutations = 1,
-                        loop_energies_coefficient=0.128,
-                        barrier_heights_coefficient=-0.137,
-                        intercept=0.542
                         )
     args = parser.parse_args()
     return args
@@ -141,10 +135,7 @@ def main():
         "--energies_filename", filenames_dict['energy_barriers_filename'],
         "--dataframe_output", filenames_dict['classifier_output_filename'],
         "--text_output", filenames_dict['pipeline_text_output_filename'],
-        "--text_output_short", filenames_dict["pipeline_text_output_short_filename"],
-        "--loop_energies_coefficient", str(args.loop_energies_coefficient),
-        "--barrier_heights_coefficient", str(args.barrier_heights_coefficient),
-        "--intercept", str(args.intercept)
+        "--text_output_short", filenames_dict["pipeline_text_output_short_filename"]
     ]
     generate_mutations_args = [
         "-f", filenames_dict['chopped_sequences'],

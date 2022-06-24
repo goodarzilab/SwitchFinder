@@ -9,9 +9,9 @@ def handler(raw_args = None):
     parser.add_argument("--dataframe_output", help="output dataframe filename", type=str)
     parser.add_argument("--text_output", help="output text filename", type=str)
     parser.add_argument("--text_output_short", help="output text filename", type=str)
-    parser.add_argument("--loop_energies_coefficient", help="linear model coefficient for the energies of alternative conformations", type=str)
-    parser.add_argument("--barrier_heights_coefficient", help="linear model coefficient for the height of the activation energy barrier", type=str)
-    parser.add_argument("--intercept", help="output dataframe filename", type=str)
+    parser.add_argument("--loop_energies_coefficient", help="linear model coefficient for the energies of alternative conformations", type=float)
+    parser.add_argument("--barrier_heights_coefficient", help="linear model coefficient for the height of the activation energy barrier", type=float)
+    parser.add_argument("--intercept", help="output dataframe filename", type=float)
 
     parser.set_defaults(
                 loop_energies_coefficient = 0.128,

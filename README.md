@@ -36,7 +36,7 @@ Input files:
 - Necessary:
 	- `input_fastafile`: a fasta file with RNA sequences of interest
 - Optional:
-	- user can include a file with RNA structure probing data (SHAPE or DMS-seq) to guide the possible match selection. There is no commonly used standard format for SHAPE RNA reactivity data; therefore, we are using the two-column SHAPE file format used by RNAstructure package ([link](https://rna.urmc.rochester.edu/Text/File_Formats.html#SHAPE)). SHAPE file provided by user should contain SHAPE profiles for multiple sequences, separated with `>`, like in fasta file. SHAPE file can be provided to the `filter_profiles_by_folding.py` script with the `--shape_profile` argument
+	- user can include a file with RNA structure probing data (SHAPE or DMS-seq) to guide the possible match selection. There is no commonly used standard format for SHAPE RNA reactivity data. SHAPE file provided by user should be a pickled dictionary, where the names are the names of individual fragments, and the values are single-dimensional numpy arrays containing the normalized SHAPE/DMSseq values. The positions where the data is absent are masked by negative values (for example, -999). SHAPE file can be provided to the `find_mutually_exclusive_stems.py` and `fold_mutually_exclusive_structures.py` scripts with the `--shape_profile` argument
 
 Output files:
 The pipeline generates three files:
@@ -63,6 +63,12 @@ The pipeline generates three files:
 
 #### 6. Generate sequence mutations that shift the equilibrium between the two mutually exclusive confromations
 	Use cgenerate_mutations.py
+
+### Generating your own classifier
+At the step 5, we assign scores to the individual predicted RNA switches. We use scores from a classifier that was pre-trained on a set of known bacterial riboswitches, downloaded from [Rfam](https://rfam.xfam.org/). If you wish to pre-train your own classifier, you may use a script named `new_classifier.py`. As the input file, please provide a fasta file containing only the known riboswitches. You should specify the parameter `--fragment_length`; all the sequences longer than the value you specify will be ignored. We recommend the value of 200, since most known RNA switches are between 0-200 nt long. The `new_classifier.py` script will output 3 parameters for a classifier; to apply them to the set of sequences of interest, pass them to the `SwFinder_pipeline.py` pipeline as parameters `--loop_energies_coefficient`, `--barrier_heights_coefficient`, `--intercept`. The parameters you have to specify:
+```
+python new_classifier.py --input_fastafile <path to known RNA switch sequences.fa> -out <path to the output folder> --temp_folder <path to the folder for temporary files> --RNAstructure_path <path to the RNAstructure installation directory> --RNApathfinder_path <path to the RNApathfinder installation directory> --fragment_length <desired length limit>
+```
 
 ### License
 MIT license
