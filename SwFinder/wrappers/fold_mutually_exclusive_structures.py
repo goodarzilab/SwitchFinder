@@ -33,7 +33,6 @@ def handler(raw_args = None):
     args = parser.parse_args(raw_args)
     return args
 
-
 def read_arguments(raw_args):
     args = handler(raw_args)
     fasta_filename = args.f
@@ -47,7 +46,6 @@ def read_arguments(raw_args):
     global RNAstructure_path
     global temp_files_folder
     global NUM_PROCESSES
-
 
     NUM_PROCESSES = args.num_processes
     temp_files_folder = args.temp_files_folder

@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2ba453db-3fcc-4b7a-ba4c-fc41663f92c0" name="Changes" comment="" />
+    <list default="true" id="2ba453db-3fcc-4b7a-ba4c-fc41663f92c0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore_global" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SwFinder/wrappers/fold_mutually_exclusive_structures.py" beforeDir="false" afterPath="$PROJECT_DIR$/SwFinder/wrappers/fold_mutually_exclusive_structures.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -91,7 +95,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1656022922166</updated>
-      <workItem from="1656022924496" duration="19992000" />
+      <workItem from="1656022924496" duration="20109000" />
     </task>
     <servers />
   </component>
