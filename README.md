@@ -24,28 +24,25 @@ pyteiser_pipeline --rna_fastafile <path to test_seqs.fa> --exp_values_file <path
 
 
 ### Usage of pipeline in manual step-by-step mode
-#### 1. Generate seeds
-	Use pyteiser/seeds_generator.py
-#### 2. Convert sequences from fasta to binary format
-	Use pyteiser/wrappers/binarize_sequences.py
-#### 3. Precalculate seed occurence profiles
-	Use pyteiser/wrappers/calculate_seed_profiles.py - run on HPC!
-#### 4. Preprocess the expression file of interest
-	Use either pyteiser/wrappers/preprocess_expression_profile_ensembl.py or pyteiser/wrappers/preprocess_custom_expression_profile.py
-#### 5. Calculate MI values for all the seeds
-	Use pyteiser/wrappers/calculate_MI_profiles.py - run on HPC!
-#### 5a. (optional) Filter possible seed matches with *in silico* RNA folding algorithm
-	Use pyteiser/wrappers/filter_profiles_by_folding.py
-#### 6. Choose significance thresholds
-	Use pyteiser/wrappers/choose_significant_seeds_v3.py - run on HPC!
-#### 7. Combine seeds that passed
-	Use pyteiser/wrappers/combine_passed_seeds.py
-#### 8. Classify seeds by families
-	Use pyteiser/wrappers/filter_passed_seeds_with_CMI.py
-#### 9. Optimize seeds
-	Use pyteiser/wrappers/optimize_seeds_single_chunk.py - run on HPC! You can submit it with pyteiser/wrappers/qsub_optimize_seeds.py
-#### 10. Combine optimized seeds
-	Use pyteiser/wrappers/combine_optimized_seeds.py
+#### 1. Split the sequence to fragments of the same length
+
+#### 2. Identify the conflicting local minima
+	Use SwFinder/MIBP_fragments_stem_finder_SHAPE_parralel.py
+
+#### 2. Fold the mutually exclusive structures
+	Use SwFinder/MIBP_fragments_stem_finder_SHAPE_parralel.py
+
+#### 2. Calculate the energies required for transition between the two conformations
+	Use SwFinder/energy_differences_v7_RNApathfinder.py
+
+#### 2. Train a classifier
+	Use SwFinder/MIBP_fragments_stem_finder_SHAPE_parralel.py	
+
+#### 2. Apply a classifier
+	Use SwFinder/convert_MIBP_output_for_logit_classifier.ipynb -> convert_energy_calculations_to_df_v3
+	some simple Python script?	
+
+
 
 ### License
 MIT license
