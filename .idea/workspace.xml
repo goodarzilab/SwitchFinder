@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2ba453db-3fcc-4b7a-ba4c-fc41663f92c0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/SwFinder/wrappers/preprocess_known_RNA_switches.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SwFinder/wrappers/new_classifier.py" beforeDir="false" afterPath="$PROJECT_DIR$/SwFinder/wrappers/new_classifier.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SwFinder/wrappers/preprocess_known_RNA_switches.py" beforeDir="false" afterPath="$PROJECT_DIR$/SwFinder/wrappers/preprocess_known_RNA_switches.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +96,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1656022922166</updated>
-      <workItem from="1656022924496" duration="21630000" />
+      <workItem from="1656022924496" duration="23873000" />
     </task>
     <servers />
   </component>
