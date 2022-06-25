@@ -132,12 +132,12 @@ def main():
         "--text_output_short", filenames_dict["pipeline_text_output_short_filename"]
     ]
 
-    #preprocess_known_RNA_switches.main(preprocess_known_RNA_switches_args)
-    #find_mutually_exclusive_stems.main(find_mutually_exclusive_stems_args)
-    #fold_mutually_exclusive_structures.main(fold_mutually_exclusive_structures_args)
+    preprocess_known_RNA_switches.main(preprocess_known_RNA_switches_args)
+    find_mutually_exclusive_stems.main(find_mutually_exclusive_stems_args)
+    fold_mutually_exclusive_structures.main(fold_mutually_exclusive_structures_args)
     calculate_energy_barriers.main(calculate_energy_barriers_args)
     train_classifier.main(train_classifier_args)
-    #clean_up_afterwards(filenames_dict)
+    clean_up_afterwards(filenames_dict)
 
 
 
