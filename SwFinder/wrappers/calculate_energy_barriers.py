@@ -167,7 +167,9 @@ def calculate_all_energies_RNAeval(fragment_name, current_consensus_dict, fragme
 
 def make_sting_to_write(fragment_name, fragment_sequence, free_energies_dict,
                         consensus_structures_dict):
-
+    # if the calculation failed
+    if free_energies_dict['common'] == CONSTANT_FOR_FAILING:
+        return ""
     string_to_write = '%s\n%s\n' % (fragment_name, fragment_sequence)
     string_to_write += 'major_loop\n%s\nsecond_loop\n%s\ncommon\n%s\n' % (consensus_structures_dict['major_loop'], consensus_structures_dict['second_loop'], consensus_structures_dict['common'])
     string_to_write += 'major_loop: %f, second_loop: %f, common: %f\n' % (free_energies_dict['major_loop'], free_energies_dict['second_loop'], free_energies_dict['common'])
