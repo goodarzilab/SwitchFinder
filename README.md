@@ -2,7 +2,7 @@
 Software for predicting RNA switches at a genome-wide scale
 
 ### Introduction
-SwFinder explicityly models 
+See the paper
 
 ### Installation
 SwFinder is meant to be run on Linux. The software has not been tested on Windows or Mac OS
