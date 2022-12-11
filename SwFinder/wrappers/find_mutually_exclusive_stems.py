@@ -1,3 +1,6 @@
+# some fucntions in this script are directly rewritten from the MatLab code here: https://github.com/wmckerrow/MIBP
+# the original comments https://github.com/wmckerrow/MIBP are kept where needed
+
 import argparse
 import os
 import sys
@@ -116,16 +119,6 @@ def run_RNAstructure_precalculations(fragment_sequence_file, filenames_dict):
     stochastic_command = "%s %s %s" % (stochastic_program_path, pfsfile, ctfile)
     stochastic_command = datapath_command + stochastic_command
     subprocess.call(stochastic_command, shell=True)
-
-
-    # try:
-    #     proc = subprocess.Popen(
-    #         command_array, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    #     proc.wait()
-    #     (stdout, stderr) = proc.communicate()
-    #
-    # except calledProcessError as err:
-    #     print("Error ocurred: " + err.stderr)
 
 
 def energy2partition(inp_energy):
