@@ -1,11 +1,11 @@
-# SwFinder
+# SwitchFinder
 Software for predicting RNA switches at a genome-wide scale
 
 ### Introduction
 See the paper
 
 ### Installation
-SwFinder is meant to be run on Linux. The software has not been tested on Windows or Mac OS
+SwitchFinder is meant to be run on Linux. The software has not been tested on Windows or Mac OS
 First, install the required Python packages:
 ```
 pip install numpy pandas sklearn
@@ -14,22 +14,22 @@ Then, install the required external software:
 - RNApathfinder
 	- Download the RNApathfinder software from [here](http://bioinformatics.bc.edu/clotelab/RNApathfinder/srcTABU.tgz) to a specified folder
 	- unpack the archive with the command `tar -zxf srcTABU.tgz`
-	- pass the address of this folder as an argument to SwFinder scripts
+	- pass the address of this folder as an argument to SwitchFinder scripts
 - RNAstructure
 	- Download the RNAstructure software from [here](http://rna.urmc.rochester.edu/Releases/current/RNAstructureForLinux.tgz) or [here](https://rna.urmc.rochester.edu/RNAstructure.html)
 	- unpack the archive with the command `tar -zxf RNAstructureForLinux.tgz`
-	- pass the address of this folder as an argument to SwFinder scripts	
+	- pass the address of this folder as an argument to SwitchFinder scripts	
 
-Then, install SwFinder:
+Then, install SwitchFinder:
 ```
-pip install SwFinder
+pip install SwitchFinder
 ```
 ### Usage of the automatic pipeline
-First, download the example input file with [sequences](https://github.com/goodarzilab/SwFinder/blob/main/example_data/example_sequences.fa)<br>
+First, download the example input file with [sequences](https://github.com/goodarzilab/SwitchFinder/blob/main/example_data/example_sequences.fa)<br>
 Next, make sure that the Python requirements, along with RNApathfinder and RNAstructure, are installed
 Then, launch the pipeline with the command: <br>
 ```
-python SwFinder_pipeline.py --input_fastafile <path to example_sequences.fa> -out <path to the output folder> --temp_folder <path to the folder for temporary files> --RNAstructure_path <path to the RNAstructure installation directory> --RNApathfinder_path <path to the RNApathfinder installation directory>
+python SwitchFinder_pipeline.py --input_fastafile <path to example_sequences.fa> -out <path to the output folder> --temp_folder <path to the folder for temporary files> --RNAstructure_path <path to the RNAstructure installation directory> --RNApathfinder_path <path to the RNApathfinder installation directory>
 ```
 
 Input files:
@@ -65,7 +65,7 @@ The pipeline generates three files:
 	Use cgenerate_mutations.py
 
 ### Generating your own classifier
-At the step 5, we assign scores to the individual predicted RNA switches. We use scores from a classifier that was pre-trained on a set of known bacterial riboswitches, downloaded from [Rfam](https://rfam.xfam.org/). If you wish to pre-train your own classifier, you may use a script named `new_classifier.py`. As the input file, please provide a fasta file containing only the known riboswitches. As an example, we provide a fasta [file](https://github.com/goodarzilab/SwFinder/blob/main/example_data/seed_riboswitches.fa) with the sequences of known riboswitches downloaded from [Rfam](ftp://ftp.ebi.ac.uk/pub/databases/Rfam/CURRENT). You should specify the parameter `--fragment_length`; all the sequences longer than the value you specify will be ignored. We recommend the value of 200, since most known RNA switches are between 0-200 nt long. The `new_classifier.py` script will output 3 parameters for a classifier; to apply them to the set of sequences of interest, pass them to the `SwFinder_pipeline.py` pipeline as parameters `--loop_energies_coefficient`, `--barrier_heights_coefficient`, `--intercept`. The parameters you have to specify:
+At the step 5, we assign scores to the individual predicted RNA switches. We use scores from a classifier that was pre-trained on a set of known bacterial riboswitches, downloaded from [Rfam](https://rfam.xfam.org/). If you wish to pre-train your own classifier, you may use a script named `new_classifier.py`. As the input file, please provide a fasta file containing only the known riboswitches. As an example, we provide a fasta [file](https://github.com/goodarzilab/SwitchFinder/blob/main/example_data/seed_riboswitches.fa) with the sequences of known riboswitches downloaded from [Rfam](ftp://ftp.ebi.ac.uk/pub/databases/Rfam/CURRENT). You should specify the parameter `--fragment_length`; all the sequences longer than the value you specify will be ignored. We recommend the value of 200, since most known RNA switches are between 0-200 nt long. The `new_classifier.py` script will output 3 parameters for a classifier; to apply them to the set of sequences of interest, pass them to the `SwitchFinder_pipeline.py` pipeline as parameters `--loop_energies_coefficient`, `--barrier_heights_coefficient`, `--intercept`. The parameters you have to specify:
 ```
 python new_classifier.py --input_fastafile <path to known RNA switch sequences.fa> --temp_folder <path to the folder for temporary files> --RNAstructure_path <path to the RNAstructure installation directory> --RNApathfinder_path <path to the RNApathfinder installation directory> --fragment_length <desired length limit>
 ```
@@ -76,5 +76,5 @@ MIT license
 ### Citing
 See the paper
 
-### About SwFinder
-SwFinder has been developed in Goodarzi lab at UCSF by Matvei Khoroshkin and Hani Goodarzi
+### About SwitchFinder
+SwitchFinder has been developed in Goodarzi lab at UCSF by Matvei Khoroshkin and Hani Goodarzi
