@@ -1,3 +1,5 @@
+[![DOI:10.1101/2023.03.11.532161](http://img.shields.io/badge/DOI-10.1101/2023.03.11.532161-B31B1B.svg)](https://doi.org/10.1101/2023.03.11.532161
+)
 # SwitchFinder
 Software for predicting RNA switches at a genome-wide scale
 
