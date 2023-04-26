@@ -175,7 +175,7 @@ class fragment:
 
     def make_mask_of_differential_intervals(self):
         merged_changing_intervals = self.get_differential_intervals()
-        changing_state = np.zeros(len(self.sequence), dtype=np.bool)
+        changing_state = np.zeros(len(self.sequence), dtype=bool)
         for i in range(merged_changing_intervals.shape[0]):
             curr_interval = merged_changing_intervals[i]
             changing_state[curr_interval[0] : curr_interval[1]] = 1
@@ -183,7 +183,7 @@ class fragment:
 
 
     def get_AC_mask(self):
-        A_C_mask = np.zeros(len(self.sequence), dtype=np.bool)
+        A_C_mask = np.zeros(len(self.sequence), dtype=bool)
 
         for i in range(len(self.sequence)):
             curr_nt = self.sequence[i]

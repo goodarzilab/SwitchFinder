@@ -15,7 +15,7 @@ def tuple_to_int(inp_tuple):
 def merge_intervals(intervals):
     starts = intervals[:,0]
     ends = np.maximum.accumulate(intervals[:,1])
-    valid = np.zeros(len(intervals) + 1, dtype=np.bool)
+    valid = np.zeros(len(intervals) + 1, dtype=bool)
     valid[0] = True
     valid[-1] = True
     valid[1:-1] = starts[1:] >= ends[:-1]

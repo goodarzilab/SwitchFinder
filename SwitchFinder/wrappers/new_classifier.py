@@ -4,8 +4,8 @@ import shutil
 
 import sys
 
-sys.path.append('/avicenna/khorms/programs/SwFinder/SwFinder')
-sys.path.append('/avicenna/khorms/programs/SwFinder/SwFinder/wrappers')
+sys.path.append('/khayyam/khorms/programs/SwitchFinder/SwitchFinder')
+sys.path.append('/khayyam/khorms/programs/SwitchFinder/SwitchFinder/wrappers')
 
 import preprocess_known_RNA_switches
 import find_mutually_exclusive_stems

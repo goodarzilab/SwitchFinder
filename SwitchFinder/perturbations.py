@@ -1200,9 +1200,9 @@ def fit_regression_one_fragment_one_perturbations(
     n_perturbations = len(perturbations_order)
     n_samples = n_bins * n_reps
     total_measurements = n_samples * n_perturbations
-    covariate_template = np.zeros(total_measurements, dtype = np.bool)
+    covariate_template = np.zeros(total_measurements, dtype = bool)
     covariates_array = np.zeros((total_measurements * 2, n_perturbations),
-                                dtype = np.bool)
+                                dtype = bool)
     for i, pert_name in enumerate(perturbations_order):
         curr_covariate = covariate_template.copy()
         beginning = i * n_samples

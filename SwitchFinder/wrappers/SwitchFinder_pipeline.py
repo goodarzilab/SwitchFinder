@@ -4,8 +4,8 @@ import shutil
 
 import sys
 
-sys.path.append('/avicenna/khorms/programs/SwFinder/SwFinder')
-sys.path.append('/avicenna/khorms/programs/SwFinder/SwFinder/wrappers')
+sys.path.append('/khayyam/khorms/programs/SwitchFinder/SwitchFinder')
+sys.path.append('/khayyam/khorms/programs/SwitchFinder/SwitchFinder/wrappers')
 
 import chop_sequences
 import find_mutually_exclusive_stems
@@ -19,7 +19,7 @@ import IO
 def handler():
     parser = argparse.ArgumentParser()
     parser.add_argument("--input_fastafile", help="the fasta file with the target sequences", type=str)
-    parser.add_argument("-out", help="output folder", type=str)
+    parser.add_argument("--out", help="output folder", type=str)
     parser.add_argument("--temp_folder", help="folder for temporary files", type=str)
     parser.add_argument("--fragment_length", help="fragment length", type=int)
     parser.add_argument("--RNAstructure_path", help="path to RNAstructure program", type=str)
