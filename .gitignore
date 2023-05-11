@@ -1,3 +1,4 @@
 .DS_Store
 .idea
 ./programs
+local_install_setup.sh
