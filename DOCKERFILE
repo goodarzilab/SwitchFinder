@@ -1,30 +1,44 @@
-# Use Ubuntu 20.04 LTS as the base image
+# Use a minimal base Ubuntu image
 FROM ubuntu:20.04
 
-ENV TZ=US
-RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+# Avoid timezone prompt during packages installation
+ENV DEBIAN_FRONTEND=noninteractive
 
-# Set environment variables
+# Install necessary packages
+RUN apt-get update && apt-get install -y \
+    wget \
+    bzip2 \
+    ca-certificates \
+    git \
+    libgomp1 \
+    locales \
+    && rm -rf /var/lib/apt/lists/*
+
+# Set up environment
 ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
 ENV PATH /opt/conda/bin:$PATH
 
-# Install required dependencies
-RUN apt-get update --fix-missing && \
-    apt-get install -y wget bzip2 ca-certificates libglib2.0-0 libxext6 libsm6 libxrender1 git mercurial subversion
-
-# Install Miniconda
+# Install Miniconda and Mamba
 RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda.sh && \
     /bin/bash ~/miniconda.sh -b -p /opt/conda && \
     rm ~/miniconda.sh && \
-    ln -s /opt/conda/etc/profile.d/conda.sh /etc/profile.d/conda.sh && \
-    echo ". /opt/conda/etc/profile.d/conda.sh" >> ~/.bashrc && \
-    echo "conda activate base" >> ~/.bashrc
+    /opt/conda/bin/conda install -c conda-forge mamba -y && \
+    /opt/conda/bin/conda clean -ya
 
-# Create the 'analysis' environment and install numpy, scikit-learn, and statsmodels
-RUN conda create -n analysis && \
-    echo "source activate analysis" >~/.bashrc && \
-    /bin/bash -c "source activate analysis && \
-    conda install -c anaconda numpy scikit-learn statsmodels"
+# Create environment and install packages
+RUN mamba create -n switch_finder_env python && \
+    /bin/bash -c "source activate switch_finder_env && \
+    mamba install -y -c conda-forge pandas numpy scikit-learn statsmodels && \
+    mamba install -y -c bioconda viennarna"
 
-# Set the ENTRYPOINT to start the 'analysis' environment by default
-ENTRYPOINT [ "/bin/bash", "-c", "source activate analysis && exec /bin/bash -i" ]
+# Copy necessary files
+COPY ./RNApathfinder /khayyam/khorms/programs/RNApathfinder
+COPY ./RNAstructure /khayyam/khorms/programs/RNAstructure
+
+# Set environment variables for scripts
+ENV RNAstructure_path=/khayyam/khorms/programs/RNAstructure
+ENV RNApathfinder_path=/khayyam/khorms/programs/RNApathfinder
+
+WORKDIR /khayyam/khorms/programs
+
+CMD [ "/bin/bash" ]
