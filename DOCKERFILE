@@ -32,8 +32,8 @@ RUN mamba create -n switch_finder_env python && \
     mamba install -y -c bioconda viennarna"
 
 # Copy necessary files
-COPY ./RNApathfinder switchfinder/programs/RNApathfinder
-COPY ./RNAstructure switchfinder/programs/RNAstructure
+COPY ./programs/RNApathfinder switchfinder/programs/RNApathfinder
+COPY ./programs/RNAstructure switchfinder/programs/RNAstructure
 
 # Set environment variables for scripts
 ENV RNAstructure_path=switchfinder/programs/RNAstructure
