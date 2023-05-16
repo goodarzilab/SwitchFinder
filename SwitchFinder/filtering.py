@@ -2,8 +2,11 @@ import numpy as np
 import pandas as pd
 import sys
 
-from .classes import loop, base_pair_array
-from . import perturbations, dotbracket_comparisons, mibp_comparisons
+sys.path.append('/switchfinder/')
+from SwitchFinder.classes import loop, base_pair_array
+import SwitchFinder.perturbations as perturbations
+import SwitchFinder.dotbracket_comparisons as dotbracket_comparisons
+import SwitchFinder.mibp_comparisons as mibp_comparisons
 
 
 def are_there_no_changing_intervals(inp_list_of_fragments, inp_collection):

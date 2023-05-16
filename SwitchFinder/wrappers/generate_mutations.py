@@ -12,10 +12,10 @@ import multiprocessing
 import sys
 sys.path.append('/switchfinder/')
 
-import SwitchFinder.perturbations
-import SwitchFinder.utils
-import SwitchFinder.IO
-import SwitchFinder.folding_api
+import SwitchFinder.perturbations as perturbations
+import SwitchFinder.utils as utils
+import SwitchFinder.IO as IO
+import SwitchFinder.folding_api as folding_api
 
 
 def handler(raw_args = None):

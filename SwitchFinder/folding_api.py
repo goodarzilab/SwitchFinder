@@ -11,8 +11,8 @@ import string
 import sys
 sys.path.append('/switchfinder/')
 
-import SwitchFinder.glob_vars
-import SwitchFinder.utils
+import SwitchFinder.glob_vars as glob_vars
+import SwitchFinder.utils as utils
 
 
 def extract_probabilities_matrix_from_ps_file(ps_filename,

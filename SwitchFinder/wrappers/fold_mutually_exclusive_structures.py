@@ -12,7 +12,7 @@ import multiprocessing
 import sys
 sys.path.append('/switchfinder/')
 
-import SwitchFinder.folding_api
+import SwitchFinder.folding_api as folding_api
 
 
 def handler(raw_args = None):

@@ -5,11 +5,11 @@ import shutil
 import sys
 sys.path.append('/switchfinder/')
 
-import SwitchFinder.SwitchFinder.preprocess_known_RNA_switches
-import SwitchFinder.SwitchFinder.find_mutually_exclusive_stems
-import SwitchFinder.SwitchFinder.fold_mutually_exclusive_structures
-import SwitchFinder.SwitchFinder.calculate_energy_barriers
-import SwitchFinder.SwitchFinder.train_classifier
+import SwitchFinder.SwitchFinder.preprocess_known_RNA_switches as preprocess_known_RNA_switches
+import SwitchFinder.SwitchFinder.find_mutually_exclusive_stems as find_mutually_exclusive_stems
+import SwitchFinder.SwitchFinder.fold_mutually_exclusive_structures as fold_mutually_exclusive_structures
+import SwitchFinder.SwitchFinder.calculate_energy_barriers as calculate_energy_barriers
+import SwitchFinder.SwitchFinder.train_classifier as train_classifier
 
 
 import IO

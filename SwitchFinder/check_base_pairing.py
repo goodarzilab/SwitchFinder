@@ -5,7 +5,7 @@ import sys
 import sys
 sys.path.append('/switchfinder/')
 
-import SwitchFinder.glob_vars
+import SwitchFinder.glob_vars as glob_vars
 
 def make_reverse_complement(sequence_np):
     out_sequence = np.zeros_like(sequence_np)

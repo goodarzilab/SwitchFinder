@@ -3,3 +3,5 @@
 programs
 local_install_setup.sh
 *.pyc
+/out
+/temp

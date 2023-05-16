@@ -4,7 +4,7 @@ import textwrap
 import sys
 
 sys.path.append('/switchfinder/')
-import SwitchFinder.glob_vars
+import SwitchFinder.glob_vars as glob_vars
 
 
 def get_stretch_coordinates(current_stretch):

@@ -7,7 +7,7 @@ sys.path.append('/switchfinder/')
 
 from SwitchFinder.classes import fragment, conformation, fragment_collection
 import SwitchFinder.utils as sw_utils
-import SwitchFinder.perturbations
+import SwitchFinder.perturbations as perturbations
 
 def entry_to_fragment_object(entry):
     current_fragment = fragment()
