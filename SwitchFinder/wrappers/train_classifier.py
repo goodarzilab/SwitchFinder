@@ -1,5 +1,10 @@
 import argparse
-import IO as IO
+
+import sys
+sys.path.append('/switchfinder/')
+
+import SwitchFinder.IO as IO
+
 import numpy as np
 import pandas as pd
 from sklearn import linear_model, metrics

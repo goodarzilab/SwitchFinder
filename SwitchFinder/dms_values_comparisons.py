@@ -1,7 +1,12 @@
 import numpy as np
 from scipy.stats import mannwhitneyu
 
-from . import classes, dotbracket_comparisons, utils
+import sys
+sys.path.append('/switchfinder/')
+
+import SwitchFinder.classes
+import SwitchFinder.dotbracket_comparisons
+import SwitchFinder.utils
 
 
 def get_shape_values_for_constant_ACs(inp_fragment, shape_profile):

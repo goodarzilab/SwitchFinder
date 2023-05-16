@@ -9,11 +9,13 @@ from datetime import datetime
 import pickle
 import multiprocessing
 
+import sys
+sys.path.append('/switchfinder/')
 
-import perturbations
-import utils
-import IO
-import folding_api
+import SwitchFinder.perturbations
+import SwitchFinder.utils
+import SwitchFinder.IO
+import SwitchFinder.folding_api
 
 
 def handler(raw_args = None):

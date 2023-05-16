@@ -1,9 +1,10 @@
 import numpy as np
-import os
-import sys
 
-import glob_vars
-import folding_api
+import sys
+sys.path.append('/switchfinder/')
+
+import SwitchFinder.glob_vars
+import SwitchFinder.folding_api
 
 def tuple_to_int(inp_tuple):
     temp_list = [int(x) for x in inp_tuple]

@@ -1,5 +1,8 @@
+import sys
+sys.path.append('/switchfinder/')
+
 import argparse
-import IO as IO
+import SwitchFinder.IO as IO
 import numpy as np
 import pandas as pd
 

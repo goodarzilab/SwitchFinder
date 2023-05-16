@@ -36,8 +36,8 @@ COPY programs/RNApathfinder /switchfinder/programs/RNApathfinder
 COPY programs/RNAstructure /switchfinder/programs/RNAstructure
 
 # Set environment variables for scripts
-ENV RNAstructure_path=switchfinder/programs/RNAstructure
-ENV RNApathfinder_path=switchfinder/programs/RNApathfinder
+ENV RNAstructure_path=/switchfinder/programs/RNAstructure
+ENV RNApathfinder_path=/switchfinder/programs/RNApathfinder
 
 WORKDIR switchfinder
 

@@ -1,5 +1,9 @@
 import argparse
-import IO as IO
+
+import sys
+sys.path.append('/switchfinder/')
+
+import SwitchFinder.IO as IO
 import numpy as np
 
 def handler(raw_args = None):

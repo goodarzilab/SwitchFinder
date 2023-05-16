@@ -1,4 +1,11 @@
-import dotbracket_comparisons, glob_vars, utils, check_base_pairing
+import sys
+sys.path.append('/switchfinder/')
+
+
+import SwitchFinder.dotbracket_comparisons
+import SwitchFinder.glob_vars
+import SwitchFinder.utils
+import SwitchFinder.check_base_pairing
 import textwrap
 import numpy as np
 import copy

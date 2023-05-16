@@ -4,17 +4,16 @@ import shutil
 
 import sys
 
-sys.path.append('/avicenna/khorms/programs/SwFinder/SwFinder')
-sys.path.append('/avicenna/khorms/programs/SwFinder/SwFinder/wrappers')
+sys.path.append('/switchfinder/')
 
-import chop_sequences
-import find_mutually_exclusive_stems
-import fold_mutually_exclusive_structures
-import calculate_energy_barriers
-import apply_classifier
-import generate_mutations
+import SwitchFinder.wrappers.chop_sequences
+import SwitchFinder.wrappers.find_mutually_exclusive_stems
+import SwitchFinder.wrappers.fold_mutually_exclusive_structures
+import SwitchFinder.wrappers.calculate_energy_barriers
+import SwitchFinder.wrappers.apply_classifier
+import SwitchFinder.wrappers.generate_mutations
 
-import IO
+import SwitchFinder.IO
 
 def handler():
     parser = argparse.ArgumentParser()

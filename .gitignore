@@ -2,3 +2,4 @@
 .idea
 programs
 local_install_setup.sh
+*.pyc

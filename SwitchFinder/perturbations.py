@@ -13,11 +13,14 @@ import itertools
 from scipy.stats import pearsonr
 # from pandarallel import pandarallelmutated_nt_content_difference
 
-import utils as sw_utils
-import IO as sw_io
-import glob_vars
-from classes import loop, base_pair_array
-import folding_api
+import sys
+sys.path.append('/switchfinder/')
+
+import SwitchFinder.utils as sw_utils
+import SwitchFinder.IO as sw_io
+import SwitchFinder.glob_vars
+from SwitchFinder.classes import loop, base_pair_array
+import SwitchFinder.folding_api
 
 
 

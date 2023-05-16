@@ -3,15 +3,13 @@ import argparse
 import shutil
 
 import sys
+sys.path.append('/switchfinder/')
 
-sys.path.append('/avicenna/khorms/programs/SwFinder/SwFinder')
-sys.path.append('/avicenna/khorms/programs/SwFinder/SwFinder/wrappers')
-
-import preprocess_known_RNA_switches
-import find_mutually_exclusive_stems
-import fold_mutually_exclusive_structures
-import calculate_energy_barriers
-import train_classifier
+import SwitchFinder.SwitchFinder.preprocess_known_RNA_switches
+import SwitchFinder.SwitchFinder.find_mutually_exclusive_stems
+import SwitchFinder.SwitchFinder.fold_mutually_exclusive_structures
+import SwitchFinder.SwitchFinder.calculate_energy_barriers
+import SwitchFinder.SwitchFinder.train_classifier
 
 
 import IO

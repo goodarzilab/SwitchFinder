@@ -8,7 +8,11 @@ import multiprocessing
 import random
 import string
 
-import glob_vars, utils
+import sys
+sys.path.append('/switchfinder/')
+
+import SwitchFinder.glob_vars
+import SwitchFinder.utils
 
 
 def extract_probabilities_matrix_from_ps_file(ps_filename,

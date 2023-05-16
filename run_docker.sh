@@ -12,13 +12,13 @@ docker -v {pwd}:/SwitchFinder run switch_finder_image
 
 
 ## Commands to run the pipeline
-# # Run the pipeline
-# python SwitchFinder/wrappers/SwitchFinder_pipeline.py \
-#         --input_fastafile example_data/example_sequences.fa \
-#         --out output \
-#         --temp_folder temp \
-#         --RNAstructure_path $RNAstructure_path \
-#         --RNApathfinder_path $RNApathfinder_path
+# Run the pipeline
+python SwitchFinder/wrappers/SwitchFinder_pipeline.py \
+        --input_fastafile example_data/example_sequences.fa \
+        --out output \
+        --temp_folder temp \
+        --RNAstructure_path $RNAstructure_path \
+        --RNApathfinder_path $RNApathfinder_path
 
 # # Run the new classifier script
 # docker -v {pwd}:/SwitchFinder run switch_finder_image python SwitchFinder/wrappers/new_classifier.py \

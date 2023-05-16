@@ -2,8 +2,10 @@ import numpy as np
 import os
 import sys
 
+import sys
+sys.path.append('/switchfinder/')
 
-import glob_vars
+import SwitchFinder.glob_vars
 
 def make_reverse_complement(sequence_np):
     out_sequence = np.zeros_like(sequence_np)
