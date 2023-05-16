@@ -62,6 +62,7 @@ def read_arguments(raw_args):
 
 
 def write_files_for_folding(fragment_name):
+    
     loops_dict_fr = folding_api.get_two_major_conflicting_loops(init_pars_dict_loc[fragment_name])
     constraints_filenames = folding_api.write_all_constraints_files_RNAstructure(loops_dict_fr, fragment_name,
                                                                                  temp_files_folder)
@@ -73,10 +74,28 @@ def write_files_for_folding(fragment_name):
     else:
         shape_filename = None
 
+    # if fragment_name == 'ENST00000344001_part_5':
+    #     for constraints_filename in constraints_filenames:
+    #         ## Check if the file exsits:
+    #         if os.path.isfile(constraints_filename):
+    #             print('{} is present'.format(constraints_filename))
+    #         else:
+    #             print('{} is not present'.format(constraints_filename))
+    #     raise ValueError('ENST00000344001_part_5 found')
+    
     return constraints_filenames, sequence_filename, shape_filename
 
 def worker_for_parallel_implementation(fragment_name):
     constraints_filenames, sequence_filename, shape_filename = write_files_for_folding(fragment_name)
+
+    print('\n\n\n')
+    print('The outputs from write files for folding')
+    print('fragment_name: {}'.format(fragment_name))
+    print('constraints_filenames: {}'.format(constraints_filenames))
+    print('sequence_filename: {}'.format(sequence_filename))
+    print('\n\n\n')
+
+
     filenames_to_remove = constraints_filenames + [sequence_filename]
     dotbrackets_list = []
     ct_files = []
@@ -84,18 +103,41 @@ def worker_for_parallel_implementation(fragment_name):
     for constr_filename in constraints_filenames:
         pfs_filename = constr_filename.replace(".txt", "_partition.pfs")
         ct_filename = constr_filename.replace(".txt", "_MEA.ct")
+
+        print('partitioning {}'.format(fragment_name))
+        print('ct_filename: {}'.format(ct_filename))
+
         partition_command = os.path.join(RNAstructure_path, "partition")
         MEA_command = os.path.join(RNAstructure_path, "MaxExpect")
+
+        print('partition_command: {}'.format(partition_command))
+        print('MEA_command: {}'.format(MEA_command))
+
         partition_arguments = [partition_command, sequence_filename, pfs_filename, '--constraint', constr_filename]
         MEA_arguments = [MEA_command, pfs_filename, ct_filename]
+
+        print('partition_arguments: {}'.format(partition_arguments))
+        print('MEA_arguments: {}'.format(MEA_arguments))
+
 
         if not shape_filename is None:
             partition_arguments.append('--SHAPE')
             partition_arguments.append(shape_filename)
             filenames_to_remove.append(shape_filename)
 
+        print('Checking if the constraints file exists')
+        if os.path.isfile(constr_filename):
+            print('{} is present'.format(constr_filename))
+        else:
+            print('{} is not present'.format(constr_filename))
+
         partition_result = run(args=partition_arguments,  stdout=PIPE, stderr=PIPE, cwd=temp_files_folder)
+        print(partition_result.stdout)
+        print(partition_result.stderr)
+
+        sys.exit(1)
         MEA_result = run(args=MEA_arguments,  stdout=PIPE, stderr=PIPE, cwd=temp_files_folder)
+        print(MEA_result.stderr)
         MEA_bracket_notation, dot_filename = folding_api.ctfile_to_dotbracket(ct_filename,
                                                                               RNAstructure_path)
         dotbrackets_list.append(MEA_bracket_notation)

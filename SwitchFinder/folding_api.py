@@ -255,7 +255,7 @@ def launch_folding_get_probabilities_RNAstructure(fragment_name,
                                      shape_array,
                                      temp_files_folder,
                                      no_constraints = False,
-                                     RNAstructure_path = '/rumi/shams/khorms/programs/RNAstructure',
+                                     RNAstructure_path = 'programs/RNAstructure',
                                      ):
     RNAstructure_parameters_data_path = os.path.join(RNAstructure_path, 'data_tables')
     RNAstructure_path = os.path.join(RNAstructure_path, 'exe')

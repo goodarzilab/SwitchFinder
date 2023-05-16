@@ -15,8 +15,8 @@ docker -v {pwd}:/SwitchFinder run switch_finder_image
 # Run the pipeline
 python SwitchFinder/wrappers/SwitchFinder_pipeline.py \
         --input_fastafile example_data/example_sequences.fa \
-        --out ./output \
-        --temp_folder ./temp \
+        --out output \
+        --temp_folder temp \
         --RNAstructure_path $RNAstructure_path \
         --RNApathfinder_path $RNApathfinder_path
 
