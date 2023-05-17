@@ -173,6 +173,10 @@ def write_constraint_file_for_loop_RNAstructure(loop_entry, current_filename):
     with open(current_filename, 'w') as wf:
         wf.write(string_to_write)
 
+    ## check if the file was written
+    if not os.path.isfile(current_filename):
+        raise Exception("Error! Constraints file %s was not written!" % current_filename)
+
 
 # modified from sw_finder.wrappers.fold_alternative_consensus_structures_parralel
 def write_fragment_sequence_file(fragment_name, dict_entry, temp_files_folder):
@@ -180,6 +184,9 @@ def write_fragment_sequence_file(fragment_name, dict_entry, temp_files_folder):
     current_filename = os.path.join(temp_files_folder, "%s_%s_sequence.fa" % (fragment_name, rand_string))
     with open(current_filename, 'w') as wf:
         wf.write(">%s\n%s\n" % (fragment_name, dict_entry))
+    if not os.path.isfile(current_filename):
+        print("Error! Sequence file %s was not written!" % current_filename)
+        raise Exception("Error! Sequence file %s was not written!" % current_filename)
     return current_filename
 
 
