@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Build the Docker image
-docker build -t switch_finder_image .
+docker build -t eagleshot/switch_finder_image .
 
 ## Mount the current directory to the Docker container
 # Run the pipeline
