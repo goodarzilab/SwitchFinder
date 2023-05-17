@@ -36,7 +36,7 @@ def n_not_paired_bases(sequence_np_1, sequence_np_2,
                        allow_canonical = True):
     sequence_np_2_c = sequence_np_2.copy()
     assert sequence_np_1.shape[0] == sequence_np_2_c.shape[0]
-    is_pared_array = np.zeros_like(sequence_np_1, dtype=np.bool)
+    is_pared_array = np.zeros_like(sequence_np_1, dtype=bool)
     if orientation == "reversed":
         sequence_np_2_c = np.flip(sequence_np_2_c)
     for i in range(sequence_np_1.shape[0]):
@@ -70,7 +70,7 @@ def max_base_pairs_in_a_row(sequence_np_1, sequence_np_2,
                        allow_canonical = True):
     sequence_np_2_c = sequence_np_2.copy()
     assert sequence_np_1.shape[0] == sequence_np_2_c.shape[0]
-    is_pared_array = np.zeros_like(sequence_np_1, dtype=np.bool)
+    is_pared_array = np.zeros_like(sequence_np_1, dtype=bool)
     if orientation == "reversed":
         sequence_np_2_c = np.flip(sequence_np_2_c)
     for i in range(sequence_np_1.shape[0]):
