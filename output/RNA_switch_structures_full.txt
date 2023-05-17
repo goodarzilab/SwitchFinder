@@ -6,7 +6,7 @@ second_loop
 .....(((((((..(((((.((((((((((.(...(((((....(((....((.....(((((....)))))))...))).....))))).....)...........(((((((.((((((.......)))))).))))))).....)))))))))).))))))))))))..(........)....
 common
 .....(((((((..(((((.((((((((((............................(((((....)))))...................................(((((((.((((((.......)))))).))))))).....)))))))))).))))))))))))..(........)....
-major_loop: -78.400000, second_loop: -72.200000, common: -64.700000
+major_loop: -78.400000, second_loop: -72.200000, common: -64.600000
 $$$
 ENST00000344001_part_2
 GCGGGCAGGCAGAGGGGAGGACCTGGGCACAGAGAGGGCCTTGGGCTTCCCCGACCCCCGCAGGGGCTTCCGCTCGACAGAGAGGCTGGAGCTGACTCCATGCGCGCGGCGCGTGTTCCCCACGTGAATCCTCAGCAGATGCGTTCCCCTTCCTCTAGGCTGGGAAGATGGGTGGTCACTGCCCTC
@@ -26,7 +26,7 @@ second_loop
 ....(((((...)))))..(((...))).(((.((((((.....(((.(((....))).))).((((((((.....)))))))).....((((((....)))))).(((.((((.....)))).))).((((.(((....))).))))...(((((....)))))(.....).)))))))))....
 common
 ....(((((...)))))..(((...))).(((.((((((........................((((((((.....)))))))).....((((((....)))))).......................((((.(((....))).))))...(((((....)))))........)))))))))....
-major_loop: -82.600000, second_loop: -78.200000, common: -63.200000
+major_loop: -82.600000, second_loop: -78.200000, common: -62.300000
 $$$
 ENST00000389989_part_4
 TGCCGTGTCACCCCCTGTCCGGCCTCCACTTGCCATGGGGGATGGATGGATTTAGGGTGGGAGGGCCTGTGGGGGCCCTGGACAGTCACACCCCAGCAGCAGTGAGTGGGCAGGTTTGGAGGAGCCCCGAGTGGCCCAGGAGTCCCCCCACACACAGATGCATAGGCCTGCCTTCCGGAGACCCTG
@@ -36,7 +36,7 @@ second_loop
 ..((((.(((.(((((((..(((........)))))))))).)))))))...(((((((((((((((((((((((((((((...(((((..((((.((....))..))))..(((((....)))))....)))))))))).))))))..............)))))))...)))))....))))))
 common
 ................................................................((.........((((((...(((((..((((.((....))..))))..(((((....)))))....)))))))))).).......................))...................
-major_loop: -57.200000, second_loop: -73.800000, common: -43.560000
+major_loop: -57.200000, second_loop: -73.800000, common: -43.980000
 $$$
 ENST00000342854_part_1
 TCAGAGACAGGTGGCCTAGCAGGCACAGGACACCTGGCCGCCTCCAGGAGCCTACCCCCTGAAAGTGACAGAGACCCAGATCTCATGGAAACTGGCCAGGGGTCCTGTTAACGTCATCTCAGGGTCCAGACCCTGAAGATTTCAGAGGCTGCAGGACTTCTGCCTGAACCTGGGGTCATCGATTCA
@@ -46,7 +46,7 @@ second_loop
 ...(((...((((((((((((((((.(((...((((.(.((((((((((......((((((..(((..((((((......)))).))...)))...)))))))))))........((((((((((....))))))).)))....))))).))))).))).))))))...)).))))))))..))).
 common
 ...(((...((((((((...............................................((..((((((......)))).))...)).......................((((((((((....))))))).)))................................))))))))..))).
-major_loop: -69.300000, second_loop: -71.600000, common: -43.100000
+major_loop: -69.300000, second_loop: -71.600000, common: -44.300000
 $$$
 ENST00000344001_part_5
 CCTGCCAGGTGACCTGCCCAAAGCCAGGTGGGCCCCTCCAGGGACAAGAAAGTCCTGCAGGCAGACGTCCTGCTGGGCTGGCCGATGGCAGGATCCTCCAGGCCAGAATTCCCACCCAGGATTTGCGGCTTGCCCTCGGGAACAGACAGAAGGGGCGCCCAGAATCTCAGCACTCACCCCCGACCT
@@ -56,7 +56,7 @@ second_loop
 .......((((((((((.....).)))).((((((((...(((((......)))))((((((....).))))).((((.(((((.((((.(((...)))..))))....(((......)))....))))).))))................)))).)))).............)))))........
 common
 .......((((((((((.....).)))).((((((((...(((((......)))))...............................................................................................)))).)))).............)))))........
-major_loop: -63.200000, second_loop: -61.400000, common: -36.700000
+major_loop: -63.200000, second_loop: -61.400000, common: -38.300000
 $$$
 ENST00000342854_part_3
 AACTGCTCCAAGTGGTGGGAATCAGATCTGTCTTGATGTGTCATCTAATTAAGGGAATCCCTTGTACCTATGGCTGCCTGCATCTATTCTTTGTACCATCTGTCTTGCCAGCCAGAAGCCTCTGCCTCCCTAGCTTTTCTGCTATAGGTCAGAGATGGGCTGAACTGAGCCTAGCTACCTTCTCTA
@@ -66,17 +66,7 @@ second_loop
 ....(((.((((.(((((................((((((((((.....((((((...)))))).....))))).....)))))...........)))))...))))..))).(((((.((((((((...((((......)))).))).))))).((((((......)))))).....)))))...
 common
 .................................................((((((...)))))).......................................................((((((((...((((......)))).))).))))).((((((......)))))).............
-major_loop: -48.200000, second_loop: -47.100000, common: -29.730000
-$$$
-ENST00000344001_part_1
-GCCGCACCTCAGGGAGGCCGCCGGGCTAGCCGTGGCCTGGGGTGGGACAGGAGGCCCACGGCAGCCCTGGTGCCACCAAGCTCCGAGGGGCACGCGGGCAGGCAGAGGGGAGGACCTGGGCACAGAGAGGGCCTTGGGCTTCCCCGACCCCCGCAGGGGCTTCCGCTCGACAGAGAGGCTGGAGCT
-major_loop
-.((.(((((((....((((((.((.....)))))))))))))))))...((((((((.(((..((((..(((((.((.........)))))))..)))).((....(((((((.((.((((.........)))).)).)))))))...)))))...))))))))((((..(((.....))))))).
-second_loop
-((..((((((.((..(((.((((((((.((((((((((...((...))...)))).))))))))))).)))))).))..((((....))))..(((((..((....(((((((.((.((((.........)))).)).)))))))..)))))))..((((....))))......)))).))..)).
-common
-..........................................................................................................(((((((.((.((((.........)))).)).))))))).........................................
-major_loop: -92.900000, second_loop: -92.300000, common: -46.090000
+major_loop: -48.200000, second_loop: -47.100000, common: -29.550000
 $$$
 ENST00000389989_part_1
 GAGCCCTGAGGGCAGAGCTCCTGGCCGGTCCTGAGCCCTCCCTCCCAGGCACCCAGCACTTTAAGCCTGCTCCATGGAGGCAGAGAGGCCCGGCAAGCACAGCCACTGTGACGGGGAGTCCAGGCGCAGGAGGGACCCGGGGCCACAAGGCGCTGCGGGCCCAGGTGTGCTGGGCCCCTCTCAGGG
@@ -86,27 +76,17 @@ second_loop
 ...(((((((..........(..(((((((((..((.((((....(((((..............)))))......))))))..)).)).)))))..)(((((...)))))..((((.((((((.((((...(((.(((((.(((....))).)..)))))))...)))))))))))))))))))))
 common
 ...(((((((...................................(((((..............)))))..............................................................................................................)))))))
-major_loop: -88.300000, second_loop: -83.400000, common: -41.110000
+major_loop: -88.300000, second_loop: -83.400000, common: -44.480000
 $$$
-ENST00000342854_part_5
-CCCATCTCCCCCATCCCCCACTGCCACACCCTCCCCATTCAGACACTTCATGGACCAAGAATGAGCTGGTTTGTCAAACAACATGTGAGCATGGTCACAAGCACAAAGCTCAAGATGACAGCTCTTCTAAGGAAATGGAGAAGCTCTGTTTATAAAAACAAAAACAAAACCAGCTGCTACTCATAA
+ENST00000344001_part_1
+GCCGCACCTCAGGGAGGCCGCCGGGCTAGCCGTGGCCTGGGGTGGGACAGGAGGCCCACGGCAGCCCTGGTGCCACCAAGCTCCGAGGGGCACGCGGGCAGGCAGAGGGGAGGACCTGGGCACAGAGAGGGCCTTGGGCTTCCCCGACCCCCGCAGGGGCTTCCGCTCGACAGAGAGGCTGGAGCT
 major_loop
-..(((.(((.........................((((...........))))....((((.((((((....((..........((((......)))).(((.....)))....))..))))))))))..))).)))..(.(((.((((((...............))).)))..))).)......
+.((.(((((((....((((((.((.....)))))))))))))))))...((((((((.(((..((((..(((((.((.........)))))))..)))).((....(((((((.((.((((.........)))).)).)))))))...)))))...))))))))((((..(((.....))))))).
 second_loop
-...................................((.............))...........(((((((((((..........((((......))))..((.....))..........((((((((.........)))).)))).(((((....)))))...)).)))))))))...........
+((..((((((.((..(((.((((((((.((((((((((...((...))...)))).))))))))))).)))))).))..((((....))))..(((((..((....(((((((.((.((((.........)))).)).)))))))..)))))))..((((....))))......)))).))..)).
 common
-...................................((.............))................................((((......))))..((.....)).............................................................................
-major_loop: -20.000000, second_loop: -23.000000, common: -7.700000
-$$$
-ENST00000342854_part_6
-CCCATCCCCCACTGCCACACCCTCCCCATTCAGACACTTCATGGACCAAGAATGAGCTGGTTTGTCAAACAACATGTGAGCATGGTCACAAGCACAAAGCTCAAGATGACAGCTCTTCTAAGGAAATGGAGAAGCTCTGTTTATAAAAACAAAAACAAAACCAGCTGCTACTCATAAGTTGGACCA
-major_loop
-.........................((((...........))))....((((.((((((....(...........((((......)))).(((.....))).....)..))))))))))..................(((((....))))).........((((((..........))))))....
-second_loop
-..........................(...............)(.((((...(((((((((((((..........((((......))))..((.....))..........((((((((.........)))).)))).(((((....)))))...)).)))))))))......))....)))).)..
-common
-..........................(...............)................................((((......))))..((.....)).....................................(((((....)))))...................................
-major_loop: -22.000000, second_loop: -22.100000, common: -7.500000
+..........................................................................................................(((((((.((.((((.........)))).)).))))))).........................................
+major_loop: -92.900000, second_loop: -92.300000, common: -44.560000
 $$$
 ENST00000344001_part_4
 CTGCAGGCTCACCAGCCCTGAGCGGCAGACCTTACCTGCCAGGTGACCTGCCCAAAGCCAGGTGGGCCCCTCCAGGGACAAGAAAGTCCTGCAGGCAGACGTCCTGCTGGGCTGGCCGATGGCAGGATCCTCCAGGCCAGAATTCCCACCCAGGATTTGCGGCTTGCCCTCGGGAACAGACAGAAG
@@ -116,5 +96,25 @@ second_loop
 ..(..((....))..)((((((.(((((...((((((...)))))).).(((((..............((.....((((......))))....)).....((((((.((((((((((..(((.((....)))))))))))....))))..)))))).)).))).))))))))))............
 common
 ...........................(...((((((...)))))).)....................((......(((......))).....))...........................................................................................
-major_loop: -70.500000, second_loop: -50.300000, common: -21.500000
+major_loop: -70.500000, second_loop: -50.300000, common: -28.000000
+$$$
+ENST00000342854_part_5
+CCCATCTCCCCCATCCCCCACTGCCACACCCTCCCCATTCAGACACTTCATGGACCAAGAATGAGCTGGTTTGTCAAACAACATGTGAGCATGGTCACAAGCACAAAGCTCAAGATGACAGCTCTTCTAAGGAAATGGAGAAGCTCTGTTTATAAAAACAAAAACAAAACCAGCTGCTACTCATAA
+major_loop
+..(((.(((.........................((((...........))))....((((.((((((....((..........((((......)))).(((.....)))....))..))))))))))..))).)))..(.(((.((((((...............))).)))..))).)......
+second_loop
+...................................((.............))...........(((((((((((..........((((......))))..((.....))..........((((((((.........)))).)))).(((((....)))))...)).)))))))))...........
+common
+...................................((.............))................................((((......))))..((.....)).............................................................................
+major_loop: -20.000000, second_loop: -23.000000, common: -5.700000
+$$$
+ENST00000342854_part_6
+CCCATCCCCCACTGCCACACCCTCCCCATTCAGACACTTCATGGACCAAGAATGAGCTGGTTTGTCAAACAACATGTGAGCATGGTCACAAGCACAAAGCTCAAGATGACAGCTCTTCTAAGGAAATGGAGAAGCTCTGTTTATAAAAACAAAAACAAAACCAGCTGCTACTCATAAGTTGGACCA
+major_loop
+.........................((((...........))))....((((.((((((....(...........((((......)))).(((.....))).....)..))))))))))..................(((((....))))).........((((((..........))))))....
+second_loop
+..........................(...............)(.((((...(((((((((((((..........((((......))))..((.....))..........((((((((.........)))).)))).(((((....)))))...)).)))))))))......))....)))).)..
+common
+..........................(...............)................................((((......))))..((.....)).....................................(((((....)))))...................................
+major_loop: -22.000000, second_loop: -22.100000, common: -5.900000
 $$$
