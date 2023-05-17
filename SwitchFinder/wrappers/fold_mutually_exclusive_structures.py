@@ -88,14 +88,6 @@ def write_files_for_folding(fragment_name):
 def worker_for_parallel_implementation(fragment_name):
     constraints_filenames, sequence_filename, shape_filename = write_files_for_folding(fragment_name)
 
-    # print('\n\n\n')
-    # print('The outputs from write files for folding')
-    # print('fragment_name: {}'.format(fragment_name))
-    # print('constraints_filenames: {}'.format(constraints_filenames))
-    # print('sequence_filename: {}'.format(sequence_filename))
-    # print('\n\n\n')
-
-
     filenames_to_remove = constraints_filenames + [sequence_filename]
     dotbrackets_list = []
     ct_files = []
@@ -104,35 +96,18 @@ def worker_for_parallel_implementation(fragment_name):
         pfs_filename = constr_filename.replace(".txt", "_partition.pfs")
         ct_filename = constr_filename.replace(".txt", "_MEA.ct")
 
-        # print('partitioning {}'.format(fragment_name))
-        # print('ct_filename: {}'.format(ct_filename))
-
         partition_command = os.path.join(RNAstructure_path, "partition")
         MEA_command = os.path.join(RNAstructure_path, "MaxExpect")
-
-        print('partition_command: {}'.format(partition_command))
-        # print('MEA_command: {}'.format(MEA_command))
 
         partition_arguments = [partition_command, sequence_filename, pfs_filename, '--constraint', constr_filename]
         MEA_arguments = [MEA_command, pfs_filename, ct_filename]
 
-        print('partition_arguments: {}'.format(partition_arguments))
-        # print('MEA_arguments: {}'.format(MEA_arguments))
 
 
         if not shape_filename is None:
             partition_arguments.append('--SHAPE')
             partition_arguments.append(shape_filename)
             filenames_to_remove.append(shape_filename)
-
-        # print('Checking if the constraints file exists')
-        # if os.path.isfile(constr_filename):
-        #     print('{} is present'.format(constr_filename))
-        # else:
-        #     print('{} is not present'.format(constr_filename))
-
-        # partition_result = run(args='ls',  stdout=PIPE, stderr=PIPE, cwd=temp_files_folder)
-        # print(partition_result.stdout)
 
         partition_result = run(args=partition_arguments,  stdout=PIPE, stderr=PIPE)
         print(partition_result.stdout)
@@ -168,8 +143,6 @@ def worker_for_parallel_implementation(fragment_name):
     for fn in sorted(list(set(filenames_to_remove))):
         os.remove(fn)
     return string_to_write
-
-
 
 
 def get_neccesary_dictionaries(scores_filename, input_shape_dict, fasta_filename):
