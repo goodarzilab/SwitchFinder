@@ -70,6 +70,37 @@ At the step 5, we assign scores to the individual predicted RNA switches. We use
 python new_classifier.py --input_fastafile <path to known RNA switch sequences.fa> --temp_folder <path to the folder for temporary files> --RNAstructure_path <path to the RNAstructure installation directory> --RNApathfinder_path <path to the RNApathfinder installation directory> --fragment_length <desired length limit>
 ```
 
+### Using Docker
+
+The docker file can be built using:
+`docker build -t switch_finder_image .` 
+
+It run using `docker -v {pwd}:/SwitchFinder run switch_finder_image ` to start an interactive shell. This code assumes that the file is started in the base directory of this GitHub repository. Live changes are reflected in the code runs.
+
+Example code to run the pipeline:
+````
+```
+python SwitchFinder/wrappers/SwitchFinder_pipeline.py \
+        --input_fastafile example_data/example_sequences.fa \
+        --out output \
+        --temp_folder temp \
+        --RNAstructure_path $RNAstructure_path \
+        --RNApathfinder_path $RNApathfinder_path
+```
+````
+
+Example code to run the classifier
+````
+```
+python SwitchFinder/wrappers/new_classifier.py \
+--input_fastafile example_data/seed_riboswitches.fa \
+--temp_folder temp \
+--RNAstructure_path $RNAstructure_path \
+--RNApathfinder_path $RNApathfinder_path \
+--fragment_length 200
+```
+````
+
 ### License
 MIT license
 
