@@ -21,9 +21,9 @@ python SwitchFinder/wrappers/SwitchFinder_pipeline.py \
         --RNApathfinder_path $RNApathfinder_path
 
 # # Run the new classifier script
-# docker -v {pwd}:/SwitchFinder run switch_finder_image python SwitchFinder/wrappers/new_classifier.py \
-# --input_fastafile example_data/seed_riboswitches.fa \
-# --temp_folder temp \
-# --RNAstructure_path $RNAstructure_path \
-# --RNApathfinder_path $RNApathfinder_path \
-# --fragment_length 200
+python SwitchFinder/wrappers/new_classifier.py \
+--input_fastafile example_data/seed_riboswitches.fa \
+--temp_folder temp \
+--RNAstructure_path $RNAstructure_path \
+--RNApathfinder_path $RNApathfinder_path \
+--fragment_length 200
