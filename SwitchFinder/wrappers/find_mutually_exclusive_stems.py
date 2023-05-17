@@ -13,6 +13,8 @@ import pickle
 import random
 import string
 
+import warnings
+warnings.filterwarnings("ignore", category=RuntimeWarning)
 
 def handler(raw_args = None):
     parser = argparse.ArgumentParser()

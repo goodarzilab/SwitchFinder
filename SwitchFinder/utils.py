@@ -3,8 +3,8 @@ import numpy as np
 import sys
 sys.path.append('/switchfinder/')
 
-import SwitchFinder.glob_vars
-import SwitchFinder.folding_api
+import SwitchFinder.glob_vars as glob_vars
+import SwitchFinder.folding_api as folding_api
 
 def tuple_to_int(inp_tuple):
     temp_list = [int(x) for x in inp_tuple]
