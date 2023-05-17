@@ -220,6 +220,10 @@ def write_shape_constraints_RNAstructure(fragment_name, shape_array, temp_files_
     with open(shape_filename, 'w') as wf:
         wf.write(string_to_write)
 
+    ## Check that the file was written
+    if not os.path.isfile(shape_filename):
+        raise Exception("Error! Shape file %s was not written!" % shape_filename)
+
     return shape_filename
 
 
@@ -569,6 +573,10 @@ def write_common_unwound_structure(fragment_name, temp_files_folder, ct_filename
                         str_to_write += ' ' * (6 - len(line_splitted[6]))
                         str_to_write += line_splitted[6]
                         wf.write(str_to_write)
+
+    # Check that the file was written
+    if not os.path.isfile(new_ct_file):
+        raise Exception("Error! CT file %s was not written!" % new_ct_file)
     return new_ct_file
 
 
