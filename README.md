@@ -73,7 +73,7 @@ python new_classifier.py --input_fastafile <path to known RNA switch sequences.f
 ### Using Docker
 
 The docker file can be pulled using after Docker is installed in the machine:
-`docker pull eagleshot/switch_finder_image` 
+`docker pull eagleshot/switch_finder_image:latest` 
 
 It run using `docker -v {pwd}:/SwitchFinder run switch_finder_image ` to start an interactive shell. This code assumes that the file is started in the base directory of this GitHub repository. Live changes are reflected in the code runs.
 
