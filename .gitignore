@@ -8,4 +8,5 @@ local_install_setup.sh
 /temp
 /output
 *.cpython-311.pyc
-SwitchFinder/wrappers/__pycache__/chop_sequences.cpython-311.pyc
+
+
