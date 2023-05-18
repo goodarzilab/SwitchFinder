@@ -79,26 +79,26 @@ It run using `docker run -it -v $(pwd):/switchfinder eagleshot/switch_finder_ima
 
 Example code to run the pipeline:
 ````
-```
+
 python SwitchFinder/wrappers/SwitchFinder_pipeline.py \
         --input_fastafile example_data/example_sequences.fa \
         --out output \
         --temp_folder temp \
         --RNAstructure_path $RNAstructure_path \
         --RNApathfinder_path $RNApathfinder_path
-```
+
 ````
 
 Example code to run the classifier
 ````
-```
+
 python SwitchFinder/wrappers/new_classifier.py \
 --input_fastafile example_data/seed_riboswitches.fa \
 --temp_folder temp \
 --RNAstructure_path $RNAstructure_path \
 --RNApathfinder_path $RNApathfinder_path \
 --fragment_length 200
-```
+
 ````
 
 ### License

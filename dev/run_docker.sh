@@ -1,14 +1,15 @@
 #!/bin/bash
 
 # Build the Docker image
-docker build -t eagleshot/switch_finder_image .
+docker build -t eagleshot/switch_finder_image:latest  -t eagleshot/switch_finder_image:1.0 .
 
 ## Mount the current directory to the Docker container
 # Run the pipeline
-docker -v {pwd}:/SwitchFinder run switch_finder_image 
+docker run -it -v $(pwd):/switchfinder eagleshot/switch_finder_image:latest 
+docker run -it -v $(pwd):/code eagleshot/switch_finder_image:latest
 
 ## Run the docker image
-# docker run -it -v $(pwd):/switchfinder switch_finder_image
+# docker run -it -v $(pwd):/switchfinder eagleshot/switch_finder_image:latest
 
 
 ## Commands to run the pipeline
