@@ -36,7 +36,7 @@ python SwitchFinder/wrappers/new_classifier.py \
 
 ````
 
-### Installing individual packages
+### Alternative installation (individual packages)
 SwitchFinder is meant to be run on Linux. The software has not been tested on Windows or Mac OS
 First, install the required Python packages:
 ```
