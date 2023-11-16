@@ -4,7 +4,39 @@ Software for predicting RNA switches at a genome-wide scale
 ### Introduction
 See the paper
 
-### Installation
+## Installation
+
+### Using Docker (recommended)
+The docker file can be pulled using after Docker is installed in the machine:
+`docker pull eagleshot/switch_finder_image:latest` 
+
+It run using `docker run -it -v $(pwd):/switchfinder eagleshot/switch_finder_image:latest` to start an interactive shell. This code assumes that the file is started in the base directory of this GitHub repository. Live changes are reflected in the code runs.
+
+Example code to run the pipeline:
+````
+
+python SwitchFinder/wrappers/SwitchFinder_pipeline.py \
+        --input_fastafile example_data/example_sequences.fa \
+        --out output \
+        --temp_folder temp \
+        --RNAstructure_path $RNAstructure_path \
+        --RNApathfinder_path $RNApathfinder_path
+
+````
+
+Example code to run the classifier
+````
+
+python SwitchFinder/wrappers/new_classifier.py \
+--input_fastafile example_data/seed_riboswitches.fa \
+--temp_folder temp \
+--RNAstructure_path $RNAstructure_path \
+--RNApathfinder_path $RNApathfinder_path \
+--fragment_length 200
+
+````
+
+### Installing individual packages
 SwitchFinder is meant to be run on Linux. The software has not been tested on Windows or Mac OS
 First, install the required Python packages:
 ```
@@ -12,9 +44,10 @@ pip install numpy pandas sklearn
 ```
 Then, install the required external software:
 - RNApathfinder
-	- Download the RNApathfinder software from [here](http://bioinformatics.bc.edu/clotelab/RNApathfinder/srcTABU.tgz) to a specified folder
-	- unpack the archive with the command `tar -zxf srcTABU.tgz`
-	- pass the address of this folder as an argument to SwitchFinder scripts
+	- Download the RNApathfinder software from this repo to a specified folder ([RNAPathFinder.tar](https://github.com/goodarzilab/SwitchFinder/blob/main/RNAPathFinder.tar)). Please cite I. Dotú, W.A. Lorenz, P. Van Hentenryck, P. Clote. Nucleic Acids Res. 2010 Mar 1;38(5):1711-22.
+	- unpack the archive with the command `tar -xf RNAPathFinder.tar`
+ 	- compile as a standard C software
+	- pass the address of this folder (titled srcTABU) as an argument to SwitchFinder scripts
 - RNAstructure
 	- Download the RNAstructure software from [here](http://rna.urmc.rochester.edu/Releases/current/RNAstructureForLinux.tgz) or [here](https://rna.urmc.rochester.edu/RNAstructure.html)
 	- unpack the archive with the command `tar -zxf RNAstructureForLinux.tgz`
@@ -72,34 +105,7 @@ python new_classifier.py --input_fastafile <path to known RNA switch sequences.f
 
 ### Using Docker
 
-The docker file can be pulled using after Docker is installed in the machine:
-`docker pull eagleshot/switch_finder_image:latest` 
 
-It run using `docker run -it -v $(pwd):/switchfinder eagleshot/switch_finder_image:latest` to start an interactive shell. This code assumes that the file is started in the base directory of this GitHub repository. Live changes are reflected in the code runs.
-
-Example code to run the pipeline:
-````
-
-python SwitchFinder/wrappers/SwitchFinder_pipeline.py \
-        --input_fastafile example_data/example_sequences.fa \
-        --out output \
-        --temp_folder temp \
-        --RNAstructure_path $RNAstructure_path \
-        --RNApathfinder_path $RNApathfinder_path
-
-````
-
-Example code to run the classifier
-````
-
-python SwitchFinder/wrappers/new_classifier.py \
---input_fastafile example_data/seed_riboswitches.fa \
---temp_folder temp \
---RNAstructure_path $RNAstructure_path \
---RNApathfinder_path $RNApathfinder_path \
---fragment_length 200
-
-````
 
 ### License
 MIT license
