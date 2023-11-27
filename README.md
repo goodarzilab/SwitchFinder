@@ -55,7 +55,7 @@ Then, install the required external software:
 
 Then, install SwitchFinder:
 ```
-pip install SwitchFinder
+pip install git+https://github.com/goodarzilab/SwitchFinder.git
 ```
 ### Usage of the automatic pipeline
 First, download the example input file with [sequences](https://github.com/goodarzilab/SwitchFinder/blob/main/example_data/example_sequences.fa)<br>
