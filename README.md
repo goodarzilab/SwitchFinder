@@ -40,7 +40,7 @@ new_classifier \
 SwitchFinder is meant to be run on Linux. The software has not been tested on Windows or Mac OS
 First, install the required Python packages:
 ```
-pip install numpy pandas sklearn
+pip install numpy pandas scikit-learn
 ```
 Then, install the required external software:
 - RNApathfinder
