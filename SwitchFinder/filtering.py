@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 import sys
 
-sys.path.append('/switchfinder/')
+
 from SwitchFinder.classes import loop, base_pair_array
 import SwitchFinder.perturbations as perturbations
 import SwitchFinder.dotbracket_comparisons as dotbracket_comparisons

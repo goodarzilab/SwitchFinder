@@ -3,7 +3,7 @@ import argparse
 import shutil
 
 import sys
-sys.path.append('/switchfinder/')
+
 
 import SwitchFinder.wrappers.preprocess_known_RNA_switches as preprocess_known_RNA_switches
 import SwitchFinder.wrappers.find_mutually_exclusive_stems as find_mutually_exclusive_stems

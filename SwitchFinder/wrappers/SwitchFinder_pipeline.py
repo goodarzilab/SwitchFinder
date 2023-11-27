@@ -4,7 +4,7 @@ import shutil
 
 import sys
 
-sys.path.append('/switchfinder/')
+
 
 import SwitchFinder.wrappers.chop_sequences as chop_sequences
 import SwitchFinder.wrappers.find_mutually_exclusive_stems as find_mutually_exclusive_stems

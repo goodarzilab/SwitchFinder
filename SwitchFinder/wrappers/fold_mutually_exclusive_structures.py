@@ -10,7 +10,7 @@ import pickle
 import multiprocessing
 
 import sys
-sys.path.append('/switchfinder/')
+
 
 import SwitchFinder.folding_api as folding_api
 

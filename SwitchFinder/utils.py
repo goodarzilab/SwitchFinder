@@ -1,7 +1,7 @@
 import numpy as np
 
 import sys
-sys.path.append('/switchfinder/')
+
 
 import SwitchFinder.glob_vars as glob_vars
 import SwitchFinder.folding_api as folding_api

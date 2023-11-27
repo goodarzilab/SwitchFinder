@@ -3,7 +3,7 @@ import re
 import pandas as pd
 
 import sys
-sys.path.append('/switchfinder/')
+
 
 from SwitchFinder.classes import fragment, conformation, fragment_collection
 import SwitchFinder.utils as sw_utils

@@ -1,5 +1,5 @@
 import sys
-sys.path.append('/switchfinder/')
+
 
 
 import SwitchFinder.dotbracket_comparisons as dotbracket_comparisons

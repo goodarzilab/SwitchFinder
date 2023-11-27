@@ -10,7 +10,7 @@ import pickle
 import multiprocessing
 
 import sys
-sys.path.append('/switchfinder/')
+
 
 import SwitchFinder.perturbations as perturbations
 import SwitchFinder.utils as utils

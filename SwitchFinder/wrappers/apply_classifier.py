@@ -1,5 +1,5 @@
 import sys
-sys.path.append('/switchfinder/')
+
 
 import argparse
 import SwitchFinder.IO as IO

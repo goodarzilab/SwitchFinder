@@ -2,7 +2,7 @@ import numpy as np
 from scipy.stats import mannwhitneyu
 
 import sys
-sys.path.append('/switchfinder/')
+
 
 import SwitchFinder.classes as classes
 import SwitchFinder.dotbracket_comparisons as dotbracket_comparisons

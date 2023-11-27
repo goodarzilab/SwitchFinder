@@ -14,7 +14,7 @@ from scipy.stats import pearsonr
 # from pandarallel import pandarallelmutated_nt_content_difference
 
 import sys
-sys.path.append('/switchfinder/')
+
 
 import SwitchFinder.utils as sw_utils
 import SwitchFinder.IO as sw_io

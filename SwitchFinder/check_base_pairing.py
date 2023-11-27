@@ -3,7 +3,6 @@ import os
 import sys
 
 import sys
-sys.path.append('/switchfinder/')
 
 import SwitchFinder.glob_vars as glob_vars
 

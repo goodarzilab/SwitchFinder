@@ -1,7 +1,7 @@
 import argparse
 
 import sys
-sys.path.append('/switchfinder/')
+
 
 import SwitchFinder.IO as IO
 import numpy as np

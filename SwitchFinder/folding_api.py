@@ -9,7 +9,7 @@ import random
 import string
 
 import sys
-sys.path.append('/switchfinder/')
+
 
 import SwitchFinder.glob_vars as glob_vars
 import SwitchFinder.utils as utils

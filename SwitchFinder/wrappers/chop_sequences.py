@@ -3,7 +3,7 @@ import numpy as np
  
 # setting path to import IO.py
 import sys
-sys.path.append('/switchfinder/')
+
 import SwitchFinder.IO as IO
 
 def handler(raw_args = None):

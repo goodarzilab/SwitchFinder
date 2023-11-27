@@ -1,0 +1,29 @@
+[project]
+name = "SwitchFinder"
+version = '0.1'
+description = "SwitchFinder"
+requires-python = ">3.5"
+license = {file = "LICENSE"}
+
+[project.scripts]
+SwitchFinder_pipeline = "SwitchFinder.wrappers.SwitchFinder_pipeline:main"
+chop_sequences = "SwitchFinder.wrappers.chop_sequences:main"
+find_mutually_exclusive_stems = "SwitchFinder.wrappers.find_mutually_exclusive_stems:main"
+fold_mutually_exclusive_structures = "SwitchFinder.wrappers.find_mutually_exclusive_structres:main"
+calculate_energy_barriers = "SwitchFinder.wrappers.calculate_energy_barriers:main"
+apply_classifier = "SwitchFinder.wrappers.apply_classifier:main"
+generate_mutations = "SwitchFinder.wrappers.generate_mutations:main"
+new_classifier = "SwitchFinder.wrappers.new_classifier:main"
+
+[build-system]
+requires = [
+	'scikit-learn',
+	'pandas',
+	'statsmodels',
+	'numpy',
+	'setuptools'
+]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+exclude = ['example_data', 'dev']
