@@ -15,7 +15,7 @@ It run using `docker run -it -v $(pwd):/switchfinder eagleshot/switch_finder_ima
 Example code to run the pipeline:
 ````
 
-python SwitchFinder/wrappers/SwitchFinder_pipeline.py \
+SwitchFinder_pipeline \
         --input_fastafile example_data/example_sequences.fa \
         --out output \
         --temp_folder temp \
@@ -27,7 +27,7 @@ python SwitchFinder/wrappers/SwitchFinder_pipeline.py \
 Example code to run the classifier
 ````
 
-python SwitchFinder/wrappers/new_classifier.py \
+new_classifier \
 --input_fastafile example_data/seed_riboswitches.fa \
 --temp_folder temp \
 --RNAstructure_path $RNAstructure_path \
@@ -80,27 +80,27 @@ The pipeline generates three files:
 
 ### Usage of pipeline in manual step-by-step mode
 #### 1. Split the sequence to fragments of the same length
-	Use chop_sequences.py
+	Use chop_sequences
 
 #### 2. Identify the local minima of the RNA folding landscape
-	Use find_mutually_exclusive_stems.py
+	Use find_mutually_exclusive_stems
 
 #### 3. Fold the mutually exclusive structures
-	Use fold_mutually_exclusive_structures.py
+	Use fold_mutually_exclusive_structures
 
 #### 4. Calculate the energies required for transition between the two conformations
-	Use calculate_energy_barriers.py
+	Use calculate_energy_barriers
 
 #### 5. Predict which fragments are likely to be RNA switches
-	Use apply_classifier.py
+	Use apply_classifier
 
 #### 6. Generate sequence mutations that shift the equilibrium between the two mutually exclusive confromations
-	Use cgenerate_mutations.py
+	Use cgenerate_mutations
 
 ### Generating your own classifier
 At the step 5, we assign scores to the individual predicted RNA switches. We use scores from a classifier that was pre-trained on a set of known bacterial riboswitches, downloaded from [Rfam](https://rfam.xfam.org/). If you wish to pre-train your own classifier, you may use a script named `new_classifier.py`. As the input file, please provide a fasta file containing only the known riboswitches. As an example, we provide a fasta [file](https://github.com/goodarzilab/SwitchFinder/blob/main/example_data/seed_riboswitches.fa) with the sequences of known riboswitches downloaded from [Rfam](ftp://ftp.ebi.ac.uk/pub/databases/Rfam/CURRENT). You should specify the parameter `--fragment_length`; all the sequences longer than the value you specify will be ignored. We recommend the value of 200, since most known RNA switches are between 0-200 nt long. The `new_classifier.py` script will output 3 parameters for a classifier; to apply them to the set of sequences of interest, pass them to the `SwitchFinder_pipeline.py` pipeline as parameters `--loop_energies_coefficient`, `--barrier_heights_coefficient`, `--intercept`. The parameters you have to specify:
 ```
-python new_classifier.py --input_fastafile <path to known RNA switch sequences.fa> --temp_folder <path to the folder for temporary files> --RNAstructure_path <path to the RNAstructure installation directory> --RNApathfinder_path <path to the RNApathfinder installation directory> --fragment_length <desired length limit>
+new_classifier --input_fastafile <path to known RNA switch sequences.fa> --temp_folder <path to the folder for temporary files> --RNAstructure_path <path to the RNAstructure installation directory> --RNApathfinder_path <path to the RNApathfinder installation directory> --fragment_length <desired length limit>
 ```
 
 ### Using Docker
