@@ -8,9 +8,9 @@ See the paper
 
 ### Using Docker (recommended)
 The docker file can be pulled using after Docker is installed in the machine:
-`docker pull eagleshot/switch_finder_image:latest` 
+`docker pull goodarzilaborder/switch_finder_image:latest` 
 
-It run using `docker run -it -v $(pwd):/switchfinder eagleshot/switch_finder_image:latest` to start an interactive shell. This code assumes that the file is started in the base directory of this GitHub repository. Live changes are reflected in the code runs.
+It run using `docker run -it -v $(pwd):/switchfinder goodarzilaborder/switch_finder_image:latest` to start an interactive shell. This code assumes that the file is started in the base directory of this GitHub repository. Live changes are reflected in the code runs.
 
 Example code to run the pipeline:
 ````
