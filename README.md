@@ -20,11 +20,12 @@ docker run -it -v $(pwd):/switchfinder goodarzilaborder/switch_finder_image:late
 pip install git+https://github.com/goodarzilab/SwitchFinder.git
 ```
 4. Test the installation
-    a. Download example data (within the Docker container):
+
+    1. Download example data (within the Docker container):
 ```
 wget https://raw.githubusercontent.com/goodarzilab/SwitchFinder/main/example_data/example_sequences.fa
 ```
-    b. Run the pipeline (within the Docker container)
+    2. Run the pipeline (within the Docker container)
 ```
 SwitchFinder_pipeline \
         --input_fastafile example_sequences.fa \
@@ -33,7 +34,7 @@ SwitchFinder_pipeline \
         --RNAstructure_path $RNAstructure_path \
         --RNApathfinder_path $RNApathfinder_path
 ```
-    c. Move the output files to the desired location (outside of Docker container)
+    3. Move the output files to the desired location (outside of Docker container)
 
 ### Alternative installation (individual packages)
 SwitchFinder is meant to be run on Linux. The software has not been tested on Windows or Mac OS
