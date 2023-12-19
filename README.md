@@ -7,6 +7,7 @@ See the paper
 ## Installation
 
 ### Using Docker (recommended)
+The C dependcies can be accesed using the Docker image.  
 The docker file can be pulled using after Docker is installed in the machine:
 `docker pull goodarzilaborder/switch_finder_image:latest` 
 
@@ -16,6 +17,7 @@ Once in the docker environment, you must install the python portion using
 ```
 pip install git+https://github.com/goodarzilab/SwitchFinder.git
 ```
+In the docker environment, the RNAstructure and RNApathfinder programs are can be accessed using $RNAstructure_path and $RNApathfinder_path, respectively.  
 
 Example code to run the pipeline:
 ````
