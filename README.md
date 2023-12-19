@@ -1,12 +1,68 @@
 # SwitchFinder
-Software for predicting RNA switches at a genome-wide scale
+Software for predicting novel families of RNA switches at a genome-wide scale
 
 ### Introduction
-See the paper
+SwitchFinder is a computational tool designed for the systematic discovery of RNA structural switches within transcriptomes. It operates by analyzing RNA sequences to predict potential RNA switches and their two mutually exclusive folding conformations. Utilizing a biophysical approach based on a Boltzmann equilibrium probability distribution, SwitchFinder identifies RNA switches in a family-agnostic manner, prioritizing sequences with features indicative of RNA switches. See the [preprint](https://www.biorxiv.org/content/10.1101/2023.03.11.532161v1)
 
 ## Installation
-
 ### Using Docker (recommended)
+Prerequisites:
+- Working installation of Docker. Follow the official installation guide.
+- Up to date installation of pip. Pip can be upgraded with the command pip install --upgrade pip setuptools wheel
+Steps:
+1. Pull a docker container image with the following command (Running the command might require “sudo” depending on your user privileges)
+```
+docker pull goodarzilaborder/switch_finder_image:latest
+```
+2. Launch the Docker image
+```
+docker run -it -v $(pwd):/switchfinder goodarzilaborder/switch_finder_image:latest
+```
+3. Install the Python code inside the Docker container
+```
+pip install git+https://github.com/goodarzilab/SwitchFinder.git
+```
+4. Test the installation
+5. 
+
+Steps:
+Download example data:
+```
+wget https://raw.githubusercontent.com/goodarzilab/SwitchFinder/main/example_data/example_sequences.fa
+wget https://raw.githubusercontent.com/goodarzilab/SwitchFinder/main/example_data/seed_riboswitches.fa
+```
+
+Run the pipeline
+
+
+SwitchFinder_pipeline \
+        --input_fastafile example_sequences.fa \
+        --out output \
+        --temp_folder temp \
+        --RNAstructure_path $RNAstructure_path \
+        --RNApathfinder_path $RNApathfinder_path
+
+Copy the outfile out
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 The C dependcies can be accesed using the Docker image.  
 The docker file can be pulled using after Docker is installed in the machine:
 `docker pull goodarzilaborder/switch_finder_image:latest` 
@@ -118,7 +174,7 @@ new_classifier --input_fastafile <path to known RNA switch sequences.fa> --temp_
 MIT license
 
 ### Citing
-See the paper
+[Preprint](https://www.biorxiv.org/content/10.1101/2023.03.11.532161v1)
 
 ### About SwitchFinder
 SwitchFinder has been developed in Goodarzi lab at UCSF by Matvei Khoroshkin and Hani Goodarzi
