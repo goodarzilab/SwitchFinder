@@ -8,32 +8,32 @@ Prerequisites:
 - Up to date installation of pip. Pip can be upgraded with the command pip install --upgrade pip setuptools wheel
 Steps:
 1. Pull a docker container image with the following command (Running the command might require “sudo” depending on your user privileges)
-```
-docker pull goodarzilaborder/switch_finder_image:latest
-```
+	```
+	docker pull goodarzilaborder/switch_finder_image:latest
+	```
 2. Launch the Docker image
-```
-docker run -it -v $(pwd):/switchfinder goodarzilaborder/switch_finder_image:latest
-```
+	```
+	docker run -it -v $(pwd):/switchfinder goodarzilaborder/switch_finder_image:latest
+	```
 3. Install the Python code inside the Docker container
-```
-pip install git+https://github.com/goodarzilab/SwitchFinder.git
-```
+	```
+	pip install git+https://github.com/goodarzilab/SwitchFinder.git
+	```
 4. Test the installation
 
     1. Download example data (within the Docker container):
-```
-wget https://raw.githubusercontent.com/goodarzilab/SwitchFinder/main/example_data/example_sequences.fa
-```
+	```
+	wget https://raw.githubusercontent.com/goodarzilab/SwitchFinder/main/example_data/example_sequences.fa
+	```
     2. Run the pipeline (within the Docker container)
-```
-SwitchFinder_pipeline \
-        --input_fastafile example_sequences.fa \
-        --out output \
-        --temp_folder temp \
-        --RNAstructure_path $RNAstructure_path \
-        --RNApathfinder_path $RNApathfinder_path
-```
+	```
+	SwitchFinder_pipeline \
+	        --input_fastafile example_sequences.fa \
+	        --out output \
+	        --temp_folder temp \
+	        --RNAstructure_path $RNAstructure_path \
+	        --RNApathfinder_path $RNApathfinder_path
+	```
     3. Move the output files to the desired location (outside of Docker container)
 
 ### Alternative installation (individual packages)
