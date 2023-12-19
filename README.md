@@ -12,6 +12,11 @@ The docker file can be pulled using after Docker is installed in the machine:
 
 It run using `docker run -it -v $(pwd):/switchfinder goodarzilaborder/switch_finder_image:latest` to start an interactive shell. This code assumes that the file is started in the base directory of this GitHub repository. Live changes are reflected in the code runs.
 
+Once in the docker environment, you must install the python portion using 
+```
+pip install git+https://github.com/goodarzilab/SwitchFinder.git
+```
+
 Example code to run the pipeline:
 ````
 
