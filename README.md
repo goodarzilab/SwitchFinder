@@ -23,7 +23,6 @@ pip install git+https://github.com/goodarzilab/SwitchFinder.git
     a. Download example data (within the Docker container):
 ```
 wget https://raw.githubusercontent.com/goodarzilab/SwitchFinder/main/example_data/example_sequences.fa
-wget https://raw.githubusercontent.com/goodarzilab/SwitchFinder/main/example_data/seed_riboswitches.fa
 ```
     b. Run the pipeline (within the Docker container)
 ```
