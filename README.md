@@ -1,7 +1,4 @@
 # SwitchFinder
-Software for predicting novel families of RNA switches at a genome-wide scale
-
-### Introduction
 SwitchFinder is a computational tool designed for the systematic discovery of RNA structural switches within transcriptomes. It operates by analyzing RNA sequences to predict potential RNA switches and their two mutually exclusive folding conformations. Utilizing a biophysical approach based on a Boltzmann equilibrium probability distribution, SwitchFinder identifies RNA switches in a family-agnostic manner, prioritizing sequences with features indicative of RNA switches. See the [preprint](https://www.biorxiv.org/content/10.1101/2023.03.11.532161v1)
 
 ## Installation
@@ -23,103 +20,38 @@ docker run -it -v $(pwd):/switchfinder goodarzilaborder/switch_finder_image:late
 pip install git+https://github.com/goodarzilab/SwitchFinder.git
 ```
 4. Test the installation
-5. 
-
-Steps:
-Download example data:
+    a. Download example data (within the Docker container):
 ```
 wget https://raw.githubusercontent.com/goodarzilab/SwitchFinder/main/example_data/example_sequences.fa
 wget https://raw.githubusercontent.com/goodarzilab/SwitchFinder/main/example_data/seed_riboswitches.fa
 ```
-
-Run the pipeline
-
-
+    b. Run the pipeline (within the Docker container)
+```
 SwitchFinder_pipeline \
         --input_fastafile example_sequences.fa \
         --out output \
         --temp_folder temp \
         --RNAstructure_path $RNAstructure_path \
         --RNApathfinder_path $RNApathfinder_path
-
-Copy the outfile out
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-The C dependcies can be accesed using the Docker image.  
-The docker file can be pulled using after Docker is installed in the machine:
-`docker pull goodarzilaborder/switch_finder_image:latest` 
-
-It run using `docker run -it -v $(pwd):/switchfinder goodarzilaborder/switch_finder_image:latest` to start an interactive shell. This code assumes that the file is started in the base directory of this GitHub repository. Live changes are reflected in the code runs.
-
-Once in the docker environment, you must install the python portion using 
 ```
-pip install git+https://github.com/goodarzilab/SwitchFinder.git
-```
-In the docker environment, the RNAstructure and RNApathfinder programs are can be accessed using $RNAstructure_path and $RNApathfinder_path, respectively.  
-
-Example code to run the pipeline:
-````
-
-SwitchFinder_pipeline \
-        --input_fastafile example_data/example_sequences.fa \
-        --out output \
-        --temp_folder temp \
-        --RNAstructure_path $RNAstructure_path \
-        --RNApathfinder_path $RNApathfinder_path
-
-````
-
-Example code to run the classifier
-````
-
-new_classifier \
---input_fastafile example_data/seed_riboswitches.fa \
---temp_folder temp \
---RNAstructure_path $RNAstructure_path \
---RNApathfinder_path $RNApathfinder_path \
---fragment_length 200
-
-````
+    c. Move the output files to the desired location (outside of Docker container)
 
 ### Alternative installation (individual packages)
 SwitchFinder is meant to be run on Linux. The software has not been tested on Windows or Mac OS
-First, install the required Python packages:
-```
-pip install numpy pandas scikit-learn
-```
-Then, install the required external software:
-- RNApathfinder
+1. Install RNApathfinder
 	- Download the RNApathfinder software from this repo to a specified folder ([RNAPathFinder.tar](https://github.com/goodarzilab/SwitchFinder/blob/main/RNAPathFinder.tar)). Please cite I. Dotú, W.A. Lorenz, P. Van Hentenryck, P. Clote. Nucleic Acids Res. 2010 Mar 1;38(5):1711-22.
 	- unpack the archive with the command `tar -xf RNAPathFinder.tar`
  	- compile as a standard C software
 	- pass the address of this folder (titled srcTABU) as an argument to SwitchFinder scripts
-- RNAstructure
+2. Install RNAstructure
 	- Download the RNAstructure software from [here](http://rna.urmc.rochester.edu/Releases/current/RNAstructureForLinux.tgz) or [here](https://rna.urmc.rochester.edu/RNAstructure.html)
 	- unpack the archive with the command `tar -zxf RNAstructureForLinux.tgz`
 	- pass the address of this folder as an argument to SwitchFinder scripts	
-
-Then, install SwitchFinder:
+3. Install SwitchFinder:
 ```
 pip install git+https://github.com/goodarzilab/SwitchFinder.git
 ```
+
 ### Usage of the automatic pipeline
 First, download the example input file with [sequences](https://github.com/goodarzilab/SwitchFinder/blob/main/example_data/example_sequences.fa)<br>
 Next, make sure that the Python requirements, along with RNApathfinder and RNAstructure, are installed
@@ -165,10 +97,6 @@ At the step 5, we assign scores to the individual predicted RNA switches. We use
 ```
 new_classifier --input_fastafile <path to known RNA switch sequences.fa> --temp_folder <path to the folder for temporary files> --RNAstructure_path <path to the RNAstructure installation directory> --RNApathfinder_path <path to the RNApathfinder installation directory> --fragment_length <desired length limit>
 ```
-
-### Using Docker
-
-
 
 ### License
 MIT license
