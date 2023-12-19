@@ -36,6 +36,8 @@ Steps:
 	```
     3. Move the output files to the desired location (outside of Docker container)
 
+
+
 ### Alternative installation (individual packages)
 SwitchFinder is meant to be run on Linux. The software has not been tested on Windows or Mac OS
 1. Install RNApathfinder
