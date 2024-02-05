@@ -1,3 +1,5 @@
+[![DOI:10.1101/2023.03.11.532161](http://img.shields.io/badge/DOI-10.1101/2023.03.11.532161-B31B1B.svg)](https://doi.org/10.1101/2023.03.11.532161
+)
 # SwitchFinder
 SwitchFinder is a computational tool designed for the systematic discovery of RNA structural switches within transcriptomes. It operates by analyzing RNA sequences to predict potential RNA switches and their two mutually exclusive folding conformations. Utilizing a biophysical approach based on a Boltzmann equilibrium probability distribution, SwitchFinder identifies RNA switches in a family-agnostic manner, prioritizing sequences with features indicative of RNA switches. See the [preprint](https://www.biorxiv.org/content/10.1101/2023.03.11.532161v1)
 
