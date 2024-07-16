@@ -1,5 +1,5 @@
 # SwitchFinder
-SwitchFinder is a computational tool designed for the systematic discovery of RNA structural switches within transcriptomes. It operates by analyzing RNA sequences to predict potential RNA switches and their two mutually exclusive folding conformations. Utilizing a biophysical approach based on a Boltzmann equilibrium probability distribution, SwitchFinder identifies RNA switches in a family-agnostic manner, prioritizing sequences with features indicative of RNA switches. See the [preprint](https://www.biorxiv.org/content/10.1101/2023.03.11.532161v1)
+SwitchFinder is a computational tool designed for the systematic discovery of RNA structural switches within transcriptomes. It operates by analyzing RNA sequences to predict potential RNA switches and their two mutually exclusive folding conformations. Utilizing a biophysical approach based on a Boltzmann equilibrium probability distribution, SwitchFinder identifies RNA switches in a family-agnostic manner, prioritizing sequences with features indicative of RNA switches. See [Khoroshkin et al, 2024](https://www.nature.com/articles/s41592-024-02335-1)
 
 ## Installation
 ### Using Docker (recommended)
@@ -104,7 +104,7 @@ new_classifier --input_fastafile <path to known RNA switch sequences.fa> --temp_
 MIT license
 
 ### Citing
-[Preprint](https://www.biorxiv.org/content/10.1101/2023.03.11.532161v1)
+[Khoroshkin et al, 2024](https://www.nature.com/articles/s41592-024-02335-1)
 
 ### About SwitchFinder
 SwitchFinder has been developed in Goodarzi lab at UCSF by Matvei Khoroshkin and Hani Goodarzi
